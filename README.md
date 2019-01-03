@@ -17,7 +17,7 @@ There are a few simple steps you need to follow to get this application up and r
 * MongoDB v4 (or greater)
  
 ### Installation
-First off, clone this repo `git clone git@github.com:joshuamcclure/SuperDemo.git`.
+First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y.git`.
 
 Open a command prompt, navigate to the project folder, and run `npm install`.
  
