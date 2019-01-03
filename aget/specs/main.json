@@ -15,7 +15,7 @@
             "name": "Home",
             "url": "http://localhost:9999/#/",
             "actions": [
-                "analyze with title \"Super Demo\""
+                "analyze with title \"HR A11y\""
             ]
         },{
             "name": "Timesheets",
