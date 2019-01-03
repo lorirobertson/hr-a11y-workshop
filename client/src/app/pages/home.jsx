@@ -17,7 +17,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    document.title = 'Super Demo';
+    document.title = 'HR A11y';
   }
 
   toggle(tab) {

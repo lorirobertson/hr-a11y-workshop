@@ -1,5 +1,5 @@
 
-# SuperDemo
+# HR A11y
 This is an application for demoing the full Deque Worldspace tool suite.
 
 ## Tech Stuff
@@ -8,6 +8,7 @@ We use a variety of tools and frameworks in this project to make life _easier_. 
 * **MongoDB** - This is the underlying data source. Everything is stored here and is provided to the front-end via the API layer.
 * **React** - The front-end is built entirely on React. It's pretty cool.
 * **Webpack** - (_Only for dev mode_) Webpack helps us dev build, hot reload, and production build the front-end source.
+* **Jasmine** - A popular test runner framework used in TDD (test driven development) practices.
  
 ## Getting Started
 There are a few simple steps you need to follow to get this application up and running.

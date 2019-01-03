@@ -64,3 +64,4 @@ public/*
 aget/testOutput/
 a11y-reports/
 a11y-results/
+.DS_store
