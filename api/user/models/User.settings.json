@@ -1,0 +1,18 @@
+{
+  "connection": "default",
+  "collectionName": "users-permissions_user",
+  "info": {
+    "name": "user",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "password": {
+      "type": "password",
+      "required": true,
+      "private": true
+    }
+  }
+}

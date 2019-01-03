@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/timesheets",
+      "handler": "Timesheet.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/timesheets/grouped",
+      "handler": "Timesheet.grouped",
+      "config": {
+        "policies": []
+      }
+    },    
+    {
+      "method": "GET",
+      "path": "/api/timesheets/count",
+      "handler": "Timesheet.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/timesheets/:_id",
+      "handler": "Timesheet.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/timesheets",
+      "handler": "Timesheet.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/api/timesheets/:_id",
+      "handler": "Timesheet.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/timesheets/:_id",
+      "handler": "Timesheet.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
