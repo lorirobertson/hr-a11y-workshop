@@ -26,13 +26,14 @@ export default class PTOModal extends React.Component {
         return (
             <Fragment>
                 <Button
+                    id="openPTOModal"
                     block
                     color="info"
                     size="lg"
                     onClick={this.toggle}
                     >Start a new PTO Request
                 </Button>
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                <Modal id="PTORequestModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>New PTO Request</ModalHeader>
                     <ModalBody>
                         <FormControl
@@ -51,8 +52,19 @@ export default class PTOModal extends React.Component {
                         />
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="danger" outline className="float-left" onClick={this.toggle}>Cancel</Button>
-                        <Button color="primary" onClick={this.toggle}>Submit Request!</Button>
+                        <Button
+                            color="danger"
+                            outline
+                            className="float-left"
+                            onClick={this.toggle}>
+                            Cancel
+                        </Button>
+                        <Button
+                            id="submitPTORequest"
+                            color="primary"
+                            onClick={this.toggle}>
+                            Submit Request!
+                        </Button>
                     </ModalFooter>
                 </Modal>
             </Fragment>
