@@ -203,7 +203,12 @@ export default class TimeSheetEditor extends React.Component {
                         )
                     }
 
-                    <Button type="submit" color="success">Save</Button>
+                    <Button
+                        id="saveTimesheet"
+                        type="submit"
+                        color="success">
+                        Save
+                    </Button>
                     <Button
                         type="button"
                         color="secondary"

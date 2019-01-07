@@ -164,6 +164,7 @@ export default class TableList extends React.Component {
                     {backButton}
                     {' '}
                     <Button
+                        id="addNewTimesheet"
                         size="sm"
                         color="success"
                         className="float-right"
