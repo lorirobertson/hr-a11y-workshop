@@ -7,7 +7,7 @@
             "url": "http://localhost:9999/#/",
             "actions": [
                 "analyze with title \"Deque Systems\"",
-                "type \"agetUser\" into element \"#email\"",
+                "type \"tester\" into element \"#email\"",
                 "type \"123@123\" into element \"#password\"",
                 "click element \"#login-form > button[type=submit]\""
             ]
@@ -15,14 +15,26 @@
             "name": "Home",
             "url": "http://localhost:9999/#/",
             "actions": [
-                "analyze with title \"HR A11y\""
+                "analyze with title \"HR A11y\"",
+                "click element \"#openPTOModal\"",
+                "type \"8\" into element \"#PTORequestModal input#hours\"",
+                "type \"This is a test PTO request.\" into element \"#PTORequestModal textarea#description\"",
+                "dismiss modal \"#PTORequestModal\" with close button \"#PTORequestModal #submitPTORequest\""
             ]
         },{
             "name": "Timesheets",
             "url": "http://localhost:9999/#/timesheets",
             "actions": [
                 "analyze with title \"Timesheets\"",
-                "click element \"#content-wrapper > div > a\""
+                "click element \"#addNewTimesheet\"",
+                "analyze",
+                "type \"My Project\" into element \"#project\"",
+                "type \"2\" into element \"#monday\"",
+                "type \"4\" into element \"#tuesday\"",
+                "type \"6\" into element \"#wednesday\"",
+                "type \"8\" into element \"#thursday\"",
+                "type \"10\" into element \"#friday\"",
+                "click element \"#saveTimesheet\""
             ]
         }]
     }]

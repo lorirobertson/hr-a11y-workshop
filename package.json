@@ -13,7 +13,7 @@
     "build": "webpack",
     "start:dev": "webpack-dev-server",
     "test": "rm -rf a11y-results; jasmine --config=jasmine.json; attest-report ./a11y-results -d ./a11y-reports --format html+junit",
-    "aget": "aget spec ./aget/specs/main.json ./aget/testOutput",
+    "aget": "rm -rf aget/testOutput && aget spec ./aget/specs/main.json ./aget/testOutput --format html+junit",
     "dashboard": "cd ./dashboard && serve"
   },
   "devDependencies": {
