@@ -1,5 +1,5 @@
 import React from 'react';
-import { UncontrolledAlert } from 'reactstrap';
+import { UncontrolledAlert, Button } from 'reactstrap';
 import { Redirect, Link } from 'react-router-dom';
 import labels from '../../_utilities/labels';
 import auth from '../../_utilities/auth';
@@ -120,6 +120,15 @@ export default class LoginForm extends React.Component {
                             type="submit"
                             disabled={ !(this.state.identifier && this.state.password) }
                             >{labels.login.submitButton}</button>
+                        
+                        <Button
+                            tag={Link}
+                            to={`/register`}
+                            color="link"
+                            block
+                            className="mt-4"
+                            >Need an account? Register here.
+                        </Button>
                     </form>
                 </div>
             )

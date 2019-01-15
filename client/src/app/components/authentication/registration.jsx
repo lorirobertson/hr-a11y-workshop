@@ -3,43 +3,45 @@ import labels from '../../_utilities/labels';
 import auth from '../../_utilities/auth';
 import request from '../../_utilities/request';
 import FormControl from '../FormControl';
+import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
+import moment from 'moment';
 
 export default class RegistrationForm extends React.Component {
     constructor(props) {
-        super(props)
-        // the initial application state
+        super(props);
+
         this.state = {
-            user: null,
-            login: {
-                success: null
-            }
+            username: null,
+            password: null,
+            email: null,
+            fullName: null,
+            dob: null,
+            position: null
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.setDOB = this.setDOB.bind(this);
     }
 
-    // App "actions" (functions that modify state)
-    register(userInfo) {
-        request.post('/api/v1/register', userInfo)
-            .then(resp => {
-                if ( resp.data.jwt ) {
-                    auth.setToken(resp.data.jwt, true);
-                    //auth.set(resp.data.user, 'user', true);
-                    this.setState({
-                        user: {username,password}
-                    });
-                } else {
-                    this.setState({
-                        login: {success: user.success}
-                    });
-                }
-            })
-            .catch(err=>console.log(err));
-    }    
+    handleChange(e) {
+        this.setState({
+            [e.currentTarget.name]: e.currentTarget.value
+        });
+    } 
+
+    setDOB(d) {
+        this.setState({
+            dob: moment(new Date(d)).format('MM/DD/YYYY')
+        });
+    }
 
     handleRegistration(e) {
         e.preventDefault();
     }
 
     render() {
+        const hasRequiredData = this.state.username && this.state.password && this.state.email && this.state.fullName && this.state.dob;
         return (
             <div id="registration-form-container">
                 <form id="registration-form" onSubmit={this.handleRegistration.bind(this)}>
@@ -51,14 +53,16 @@ export default class RegistrationForm extends React.Component {
                             id="username"
                             name="username"
                             label="Username"
-                            onChange={()=>{}}
+                            value={this.state.username}
+                            onChange={(e)=>this.handleChange(e)}
                         />
                         <FormControl
-                            type="text"
+                            type="password"
                             id="password"
                             name="password"
                             label="Password"
-                            onChange={()=>{}}
+                            value={this.state.password}
+                            onChange={(e)=>this.handleChange(e)}
                         />
                     </fieldset>
                     <fieldset>
@@ -68,21 +72,24 @@ export default class RegistrationForm extends React.Component {
                             id="email"
                             name="email"
                             label="Email Address"
-                            onChange={()=>{}}
+                            value={this.state.email}
+                            onChange={(e)=>this.handleChange(e)}
                         />
                         <FormControl
                             type="text"
                             id="fullName"
                             name="fullName"
                             label="Full Name"
-                            onChange={()=>{}}
+                            value={this.state.fullName}
+                            onChange={(e)=>this.handleChange(e)}
                         />
                         <FormControl
                             type="datepicker"
                             id="dob"
                             name="dob"
                             label="Birth Date"
-                            onChange={()=>{}}
+                            value={this.state.dob}
+                            onChange={(d)=>this.setDOB(d)}
                             peekNextMonth
                             showMonthDropdown
                             showYearDropdown
@@ -93,10 +100,28 @@ export default class RegistrationForm extends React.Component {
                             id="position"
                             name="position"
                             label="Position"
-                            onChange={()=>{}}
+                            value={this.state.position}
+                            onChange={(e)=>this.handleChange(e)}
                         />
                     </fieldset>
-                    <button className="btn btn-lg btn-primary btn-block" type="submit">Register!</button>
+
+                    <Button
+                        disabled={!hasRequiredData}
+                        block
+                        color="primary"
+                        tag={Link}
+                        to={`/register/success`}
+                        >Register!
+                    </Button>
+
+                    <Button
+                        tag={Link}
+                        to={`/login`}
+                        color="link"
+                        block
+                        className="mt-4"
+                        >Already have an account? Login here.
+                    </Button>                    
                 </form>
             </div>
         )
