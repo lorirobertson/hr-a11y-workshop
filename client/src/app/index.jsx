@@ -5,6 +5,7 @@ import { Home, Timesheets, StuffShop, Blog, Auth, Error, Profile } from './pages
 
 import '../assets/css/fontawesome-all.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-datepicker/dist/react-datepicker.css";
 import '../assets/less/main.less';
 
 

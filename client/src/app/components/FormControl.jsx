@@ -2,8 +2,6 @@ import React from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 
-import "react-datepicker/dist/react-datepicker.css";
-
 export default class FormControl extends React.Component {
   constructor(props) {
     super(props);
