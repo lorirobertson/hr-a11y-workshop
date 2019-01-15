@@ -2,10 +2,9 @@ import React from 'react';
 import labels from '../../_utilities/labels';
 import auth from '../../_utilities/auth';
 import request from '../../_utilities/request';
+import FormControl from '../FormControl';
 
 export default class RegistrationForm extends React.Component {
-
-    // Using a class based component here because we're accessing DOM refs
     constructor(props) {
         super(props)
         // the initial application state
@@ -38,45 +37,69 @@ export default class RegistrationForm extends React.Component {
 
     handleRegistration(e) {
         e.preventDefault();
-        console.log(this.refs);
-        //this.register(username, password);
     }
 
     render() {
-        const loginSuccess = this.state.login.success;
-        let loginFailureAlert = '';
-        if ( loginSuccess == false && loginSuccess !== null) {
-            loginFailureAlert = <div>{labels.login.authenticationFailure}</div>;//<UncontrolledAlert className="mt-3 mb-0" color="danger"> {labels.login.authenticationFailure} </UncontrolledAlert>
-        }
-
-        if ( localStorage.getItem('access-token') ) {
-            return (
-                <a onClick={() => {
-                        auth.clearAppStorage();
-                        this.signOut();
-                    }} href="javascript:void(0)">Logout</a>
-            );
-        } else {
-            return (
+        return (
+            <div id="registration-form-container">
                 <form id="registration-form" onSubmit={this.handleRegistration.bind(this)}>
-                    <h4>Register</h4>
-                    <div className="form-group">
-                        <label htmlFor="email" className="sr-only">{labels.login.email}</label>
-                        <input type="text" ref="email" placeholder={labels.login.email} className="form-control" id="email" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="fullName" className="sr-only">Full Name</label>
-                        <input type="text" ref="fullName" placeholder="John H. Doe" className="form-control" id="fullName" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password" className="sr-only">{labels.login.password}</label>
-                        <input type="password" ref="password" placeholder={labels.login.password} className="form-control" id="password" />
-                    </div>
+                    <h1>Register</h1>
+                    <fieldset>
+                        <legend>User Credentials</legend>
+                        <FormControl
+                            type="text"
+                            id="username"
+                            name="username"
+                            label="Username"
+                            onChange={()=>{}}
+                        />
+                        <FormControl
+                            type="text"
+                            id="password"
+                            name="password"
+                            label="Password"
+                            onChange={()=>{}}
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Profile Details</legend>
+                        <FormControl
+                            type="text"
+                            id="email"
+                            name="email"
+                            label="Email Address"
+                            onChange={()=>{}}
+                        />
+                        <FormControl
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            label="Full Name"
+                            onChange={()=>{}}
+                        />
+                        <FormControl
+                            type="datepicker"
+                            id="dob"
+                            name="dob"
+                            label="Birth Date"
+                            onChange={()=>{}}
+                            peekNextMonth
+                            showMonthDropdown
+                            showYearDropdown
+                            dropdownMode="select"
+                        />
+                        <FormControl
+                            type="text"
+                            id="position"
+                            name="position"
+                            label="Position"
+                            onChange={()=>{}}
+                        />
+                    </fieldset>
                     <button className="btn btn-lg btn-primary btn-block" type="submit">Register!</button>
-                    {loginFailureAlert}
                 </form>
-            )
-        }
+            </div>
+        )
     }
 
 }
