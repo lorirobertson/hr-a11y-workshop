@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { LoginForm, RegistrationForm } from '../components/authentication';
+import { LoginForm, RegistrationForm, RegistrationSuccess } from '../components/authentication';
 
 class Auth extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class Auth extends React.Component {
       <Fragment>
         <Route path={`/login`} exact component={LoginForm}/>
         <Route path={`/register`} exact component={RegistrationForm}/>
+        <Route path={`/register/success`} exact component={RegistrationSuccess}/>
       </Fragment>
     );
   }

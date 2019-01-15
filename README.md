@@ -17,6 +17,11 @@ There are a few simple steps you need to follow to get this application up and r
 * NodeJS v10 (or greater)
 * MongoDB v4 (or greater)
  
+### MongoDB Restore
+To use some good demo content, fill in the username and password on the command below to import the sample DB.
+
+`mongorestore -u [USERNAME] -p [PASSWORD] --gzip --db "hr-a11y" dump/hr-a11y/ --authenticationDatabase=admin`
+
 ### Installation
 First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y.git`.
 
