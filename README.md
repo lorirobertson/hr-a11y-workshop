@@ -16,7 +16,23 @@ There are a few simple steps you need to follow to get this application up and r
 ### Prerequisites
 * NodeJS v10 (or greater)
 * MongoDB v4 (or greater)
- 
+
+### Mongo User
+Create a new mongo user with the script below.
+
+```
+use admin
+db.createUser(
+    {
+        user: "dbo",
+        pwd: "123456",
+        roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+    }
+)
+```
+
+Then restart mongo with authentication turned on. If you aren't sure about how to do that, [follow this guide](https://docs.mongodb.com/manual/tutorial/enable-authentication/).
+
 ### MongoDB Restore
 To use some good demo content, fill in the username and password on the command below to import the sample DB.
 
@@ -25,7 +41,7 @@ To use some good demo content, fill in the username and password on the command 
 ### Installation
 First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y.git`.
 
-Open a command prompt, navigate to the project folder, and run `npm install`.
+Open a command prompt, navigate to the project folder, and run `npm install` or `yarn`.
  
 ### Run It!
 
