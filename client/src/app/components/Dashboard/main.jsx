@@ -54,8 +54,25 @@ export default class Main extends React.Component {
                                 })
                         }
                     </Row>
+
+
+                    <div className="embed-responsive embed-responsive-16by9 mb-4">
+                        <iframe
+                            className="embed-responsive-item"
+                            scrolling="no"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=-78.33675742149354%2C38.381679017781465%2C-76.37295126914978%2C39.36102540645581&amp;layer=mapnik">
+                        </iframe>
+                    </div>                    
                 </Col>
                 <Col lg="6">
+                    <div className="embed-responsive embed-responsive-16by9 mb-4">
+                        <iframe
+                            className="embed-responsive-item"
+                            src="https://www.youtube.com/embed/2dHXGiOwBBQ"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+                        </iframe>
+                    </div>
+
                     <LatestBlogPost latest teaser />
 
                     <Card className="mb-4">
