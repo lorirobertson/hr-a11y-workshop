@@ -8,7 +8,12 @@ export default class PTOModal extends React.Component {
         super(props);
 
         this.state = {
-            modal: false
+            modal: false,
+            request: {
+                type: '',
+                hours: '',
+                description: ''
+            }
         };
 
         this.toggle = this.toggle.bind(this);
@@ -22,7 +27,17 @@ export default class PTOModal extends React.Component {
 
     componentDidMount() {}
 
+    handleChange(e) {
+        let state = {};
+        state[e.target.name] = e.target.value;
+
+        this.setState({
+            request: Object.assign({}, this.state.request, state)
+        });
+    }
+
     render() {
+        const disableSubmit = (this.state.request.type && this.state.request.hours) ? '' : 'disabled';
         return (
             <Fragment>
                 <Button
@@ -33,26 +48,55 @@ export default class PTOModal extends React.Component {
                     onClick={this.toggle}
                     >Start a new PTO Request
                 </Button>
-                <Modal id="PTORequestModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>New PTO Request</ModalHeader>
+                <Modal keyboard={false} id="PTORequestModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                    <ModalHeader>New PTO Request</ModalHeader>
                     <ModalBody>
+                        <FormControl
+                            type="select"
+                            id="type"
+                            name="type"
+                            label="Type"
+                            value={this.state.request.type}
+                            onChange={(e)=>this.handleChange(e)}
+                            options={[
+                                {value: '', label: 'PTO Type - Select one'},
+                                {value: 1, label: 'Floating Holiday'},
+                                {value: 2, label: 'Sick'},
+                                {value: 3, label: 'Vacation'},
+                                {value: 4, label: 'Other'},
+                            ]}
+                        />
                         <FormControl
                             type="number"
                             id="hours"
                             name="hours"
                             label="Hours"
-                            onChange={()=>{}}
+                            value={this.state.request.hours}
+                            onChange={(e)=>this.handleChange(e)}
                         />
                         <FormControl
                             type="textarea"
                             id="description"
                             name="description"
                             label="Description"
-                            onChange={()=>{}}
+                            value={this.state.request.description}
+                            onChange={(e)=>this.handleChange(e)}
                         />
                     </ModalBody>
                     <ModalFooter>
-                        <Button
+                        <div
+                            id="fake-cancel-button"
+                            className="btn btn-outline-danger"
+                            onClick={this.toggle}
+                            > Cancel
+                        </div>
+                        <div
+                            id="fake-submit-button"
+                            className={`btn btn-primary ${disableSubmit}`}
+                            onClick={disableSubmit ? null : this.toggle}
+                            > Submit Request!
+                        </div>
+                        {/* <Button
                             color="danger"
                             outline
                             className="float-left"
@@ -64,7 +108,7 @@ export default class PTOModal extends React.Component {
                             color="primary"
                             onClick={this.toggle}>
                             Submit Request!
-                        </Button>
+                        </Button> */}
                     </ModalFooter>
                 </Modal>
             </Fragment>
