@@ -1,5 +1,6 @@
 import a11yHelper from 'attest/a11yHelper';
-import attestReporter from 'attest-node';
+import AttestReporter from 'attest-reporter';
+//import attestReporter from 'attest-node';
 
 module.exports = {
     a11yHelper: (element) => {
@@ -11,5 +12,5 @@ module.exports = {
         });
     },
 
-    reporter: attestReporter.report('demo.dequecloud.com', './a11y-results')
+    reporter: new AttestReporter('demo.dequecloud.com', './a11y-results')
 };

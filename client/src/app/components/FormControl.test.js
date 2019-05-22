@@ -16,14 +16,23 @@ const elm = <FormControl
 const wrapper = mount(elm);
 
 describe("<FormControl />", function() {
-    it("renders the correct input element.", function() {
+    afterAll(function(done) {
+        reporter
+            .buildHTML('./a11y-results')
+            .then(done)
+            .catch(done);
+    });
+
+    it("renders the correct input element.", function(done) {
+        expect(wrapper.find('input')).to.have.lengthOf(1);
+
         a11yHelper(elm)
             .then(results => {
                 reporter.logTestResult('Inspect the FormControl component', results);
                 expect(results).to.have.property('violations').with.lengthOf(0);
-            });
-
-        expect(wrapper.find('input')).to.have.lengthOf(1);
+            })
+            .then(done)
+            .catch(done);
     });
 
     it("sets the properties correctly.", function() {
