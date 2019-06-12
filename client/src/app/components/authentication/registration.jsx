@@ -84,7 +84,7 @@ export default class RegistrationForm extends React.Component {
                             onChange={(e)=>this.handleChange(e)}
                         />
                         <FormControl
-                            type="datepicker"
+                            type="text"
                             id="dob"
                             name="dob"
                             label="Birth Date"

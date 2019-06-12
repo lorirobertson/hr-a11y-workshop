@@ -69,7 +69,7 @@ export default class Main extends React.Component {
                         <iframe
                             className="embed-responsive-item"
                             src="https://www.youtube.com/embed/2dHXGiOwBBQ"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+                            allowFullScreen>
                         </iframe>
                     </div>
 

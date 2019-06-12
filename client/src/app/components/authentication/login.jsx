@@ -91,7 +91,7 @@ export default class LoginForm extends React.Component {
                     <form id="login-form" onSubmit={this.handleSignIn.bind(this)}>
                         <h4>Please Sign In</h4>
 
-                        <label htmlFor="email" className="sr-only">{labels.login.email}</label>
+                        {/* <label htmlFor="email" className="sr-only">{labels.login.email}</label> */}
                         <input
                             type="text"
                             ref="username"
@@ -102,7 +102,7 @@ export default class LoginForm extends React.Component {
                             onChange={this.handleChange}
                         />
 
-                        <label htmlFor="password" className="sr-only">{labels.login.password}</label>
+                        {/* <label htmlFor="password" className="sr-only">{labels.login.password}</label> */}
                         <input
                             type="password"
                             ref="password"

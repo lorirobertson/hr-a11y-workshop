@@ -31,6 +31,8 @@
     "babel-preset-react-app": "^6.1.0",
     "chai": "^4.2.0",
     "css-loader": "^0.28.10",
+    "cypress": "3.3.1",
+    "cypress-axe": "^0.4.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "eslint": "^3.12.2",
