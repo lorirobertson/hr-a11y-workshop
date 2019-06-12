@@ -17,10 +17,14 @@ const wrapper = mount(elm);
 
 describe("<FormControl />", function() {
     afterAll(function(done) {
-        reporter
-            .buildHTML('./a11y-results')
-            .then(done)
-            .catch(done);
+        let reporterOutputs = [
+            reporter.buildHTML('./a11y-results'),
+            reporter.buildJUnitXML('./a11y-results'),
+        ];
+
+        Promise.all(reporterOutputs)
+                .then(done)
+                .catch(done);
     });
 
     it("renders the correct input element.", function(done) {
