@@ -1519,6 +1519,16 @@ attest-node@^2.7.1:
     depd "^2.0.0"
     execa "^1.0.0"
 
+attest-node@^2.7.3:
+  version "2.7.3"
+  resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/attest-node/-/attest-node-2.7.3.tgz#7b572a09d766e956aa31013d230ab804c8d92863"
+  integrity sha1-e1cqCddm6VaqMQE9Iwq4BMjZKGM=
+  dependencies:
+    attest-reporter "^2.7.3"
+    axe-core "^3.0.2"
+    depd "^2.0.0"
+    execa "^1.0.0"
+
 attest-reporter@^2.7.1:
   version "2.7.1"
   resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/attest-reporter/-/attest-reporter-2.7.1.tgz#ed0f2981c3b5bbf4dbdeec1717f8d2e67c2cf5db"
@@ -1535,6 +1545,29 @@ attest-reporter@^2.7.1:
     jsdom "^14.0.0"
     mkdirp "^0.5.1"
 
+attest-reporter@^2.7.3:
+  version "2.7.3"
+  resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/attest-reporter/-/attest-reporter-2.7.3.tgz#cacd5ffa42005983867cf0732702bb8a5d72f5b1"
+  integrity sha1-ys1f+kIAWYOGfPBzJwK7il1y9bE=
+  dependencies:
+    cheerio "^1.0.0-rc.2"
+    commander "^2.19.0"
+    dateformat "^3.0.3"
+    depd "^2.0.0"
+    fs-readdir-recursive "^1.1.0"
+    he "^1.2.0"
+    jsdom "^14.0.0"
+    mkdirp "^0.5.1"
+
+attest-webdriverio@^2.7.3:
+  version "2.7.3"
+  resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/attest-webdriverio/-/attest-webdriverio-2.7.3.tgz#21e2884df1da1fb87a11dd04a1b897d0c2bbfcec"
+  integrity sha1-IeKITfHaH7h6Ed0EobiX0MK7/Ow=
+  dependencies:
+    attest-node "^2.7.3"
+    axe-core "^3.0.3"
+    cssesc "^2.0.0"
+
 attest-webdriverjs@^2.7.1:
   version "2.7.1"
   resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/attest-webdriverjs/-/attest-webdriverjs-2.7.1.tgz#4e24faa32a8de653565c6a490df74ccee6e4e3ea"
@@ -1545,10 +1578,10 @@ attest-webdriverjs@^2.7.1:
     axe-webdriverjs "^2.1.0"
     depd "^2.0.0"
 
-attest@^2.7.1:
-  version "2.7.1"
-  resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/attest/-/attest-2.7.1.tgz#a16da5d8aa1c174bebabdfcf64f710c2ecfec0f0"
-  integrity sha1-oW2l2KocF0vrq9/PZPcQwuz+wPA=
+attest@^2.8.0:
+  version "2.8.0"
+  resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/attest/-/attest-2.8.0.tgz#b41b9892fc5c27f0268d84cc62e3397e775a9ba6"
+  integrity sha1-tBuYkvxcJ/AmjYTMYuM5fndam6Y=
   dependencies:
     depd "^2.0.0"
 
@@ -1586,6 +1619,11 @@ axe-core@^3.0.2, axe-core@^3.1.2:
   version "3.2.2"
   resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/axe-core/-/axe-core-3.2.2.tgz#b06d6e9ae4636d706068843272bfaeed3fe97362"
   integrity sha1-sG1umuRjbXBgaIQycr+u7T/pc2I=
+
+axe-core@^3.0.3:
+  version "3.3.0"
+  resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/axe-core/-/axe-core-3.3.0.tgz#3b32d7e54390d89ff4891b20394d33ad7a192776"
+  integrity sha1-OzLX5UOQ2J/0iRsgOU0zrXoZJ3Y=
 
 axe-webdriverjs@^2.1.0:
   version "2.2.0"
@@ -3075,6 +3113,11 @@ cssesc@^0.1.0:
   version "0.1.0"
   resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/cssesc/-/cssesc-0.1.0.tgz#c814903e45623371a0477b40109aaafbeeaddbb4"
   integrity sha1-yBSQPkViM3GgR3tAEJqq++6t27Q=
+
+cssesc@^2.0.0:
+  version "2.0.0"
+  resolved "https://agora.dequecloud.com/artifactory/api/npm/attest-virtual/cssesc/-/cssesc-2.0.0.tgz#3b13bd1bb1cb36e1bcb5a4dcd27f54c5dcb35703"
+  integrity sha1-OxO9G7HLNuG8taTc0n9UxdyzVwM=
 
 cssnano@^3.10.0:
   version "3.10.0"
