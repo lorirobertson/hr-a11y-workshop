@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import 'jsdom-global/register';
 import FormControl from './FormControl';
-import { a11yHelper, reporter } from '../_utilities/test-helpers/attest';
+import { a11yHelper, reporter, buildReports } from '../_utilities/test-helpers/attest';
 
 const elm = <FormControl
                 id="formElement"
@@ -17,38 +17,31 @@ const wrapper = mount(elm);
 
 describe("<FormControl />", function() {
     afterAll(function(done) {
-        let reporterOutputs = [
-            reporter.buildHTML('./a11y-results'),
-            reporter.buildJUnitXML('./a11y-results'),
-        ];
-
-        Promise.all(reporterOutputs)
-                .then(done)
-                .catch(done);
+        buildReports().then(done)
     });
 
     it("renders the correct input element.", function(done) {
         expect(wrapper.find('input')).to.have.lengthOf(1);
 
-        a11yHelper(elm)
-            .then(results => {
-                reporter.logTestResult('Inspect the FormControl component', results);
-                expect(results).to.have.property('violations').with.lengthOf(0);
-            })
-            .then(done)
-            .catch(done);
+        a11yHelper(elm).then(results => {
+            reporter.logTestResult('FormControl', results);
+            expect(results.violations).to.have.lengthOf(0);
+        }).then(done)
+        //done();
     });
 
-    it("sets the properties correctly.", function() {
+    it("sets the properties correctly.", function(done) {
         expect(wrapper.find('input').prop('id')).to.equal('formElement');
         expect(wrapper.find('input').prop('name')).to.equal('formElement');
         expect(wrapper.find('input').type()).to.equal('input');
         expect(wrapper.find('input').prop('placeholder')).to.equal('This is a test');
         expect(wrapper.find('input').prop('defaultValue')).to.equal('is it the same?');
+        done();
     });
 
-    it("responds to value change.", function() {
+    it("responds to value change.", function(done) {
         wrapper.setProps({ value: 'new value' });
         expect(wrapper.find('input').prop('defaultValue')).to.equal('new value');
+        done();
     });
 });
