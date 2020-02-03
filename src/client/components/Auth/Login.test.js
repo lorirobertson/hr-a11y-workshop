@@ -1,20 +1,27 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import renderer from 'react-test-renderer'
+import React from 'react';
+import { shallow } from 'enzyme';
+import {
+    a11yHelper,
+    reporter,
+    buildReports
+} from '../../_utilities/test-helpers/attest';
 
-import Login from './Login'
+import Login from './Login';
 
-describe('With Enzyme', () => {
-    it('Login shows "Please Sign In"', () => {
+describe('<Login />', () => {
+    afterAll((done) => {
+        buildReports().then(done);
+    });
+
+    it('shows "Please Sign In"', () => {
         const app = shallow(<Login />);
         expect(app.find('h4').text()).toEqual('Please Sign In');
     });
-});
 
-// describe('With Snapshot Testing', () => {
-//   it('App shows "Hello world!"', () => {
-//     const component = renderer.create(<App />)
-//     const tree = component.toJSON()
-//     expect(tree).toMatchSnapshot()
-//   })
-// })
+    it('passes automated accessibility tests', (done) => {
+        a11yHelper(<Login />).then(results => {
+            reporter.logTestResult('Login', results);
+            expect(results.violations.length).toBe(0);
+        }).then(done);
+    })
+});

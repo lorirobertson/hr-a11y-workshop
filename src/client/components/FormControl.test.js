@@ -1,9 +1,12 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
-// import 'jsdom-global/register';
 import FormControl from './FormControl';
-import { a11yHelper, reporter, buildReports } from '../_utilities/test-helpers/attest';
+import {
+    a11yHelper,
+    reporter,
+    buildReports
+} from '../_utilities/test-helpers/attest';
 
 const elm = <FormControl
                 id="formElement"
@@ -15,12 +18,12 @@ const elm = <FormControl
 
 const wrapper = mount(elm);
 
-describe("<FormControl />", function() {
-    afterAll(function(done) {
+describe("<FormControl />", () => {
+    afterAll((done) => {
         buildReports().then(done)
     });
 
-    it("renders the correct input element.", function(done) {
+    it("renders the correct input element.", (done) => {
         expect(wrapper.find('input')).to.have.lengthOf(1);
 
         a11yHelper(elm).then(results => {
