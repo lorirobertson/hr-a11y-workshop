@@ -1,0 +1,12 @@
+html, body, 
+body > #__next,
+body > #__next >  #app-container {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: #F3F2F3;
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+}
