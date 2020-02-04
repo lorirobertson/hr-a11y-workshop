@@ -45,7 +45,7 @@ const TimesheetEditor = ({
                             ;
         requestPromise
             .then((resp)=>{
-                console.log(resp);
+                return true;
             })
             .catch((err)=>{
                 console.log(err)

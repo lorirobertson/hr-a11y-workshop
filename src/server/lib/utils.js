@@ -221,7 +221,6 @@ module.exports = {
 
         Object.keys(grouped)
             .forEach((date, i) => {
-                console.log(grouped[date]);
                 const { calculated } = calcHoursByWeek(grouped[date]);
                 output.push({
                     date,

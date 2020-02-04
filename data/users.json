@@ -12,7 +12,7 @@
 	"dob" : null,
 	"position" : "",
 	"username" : "jmcclure",
-	"password" : "$2a$10$DFotj8fAeykkxsspJWAuG.DkV74d8lHFCWVmKuNUJHXrB8p2kQ8Uy",
+	"password" : "$2a$10$hSgXD1cMTdozu1j7zqId7O28MfUsRIuHjeYj2SkYuNDVGgDJcBfiO",
 	"email" : "joshua.mcclure@deque.com"
 }, {
 	"_id" : "5c13e94a10615634a842c651",
@@ -29,7 +29,7 @@
 	"position" : "Solutions Architect",
 	"username" : "nmashni",
 	"email" : "noah.mashni@deque.com",
-	"password" : "$2a$10$uuRjn3VFTxM976p8iFq80.IZsjHw6I0XR203MScqmTJ3TWA/HEdcC"
+	"password" : "$2a$10$hSgXD1cMTdozu1j7zqId7O28MfUsRIuHjeYj2SkYuNDVGgDJcBfiO"
 }, {
 	"_id" : "5c13e97810615634a842c652",
 	"confirmed" : true,
@@ -45,7 +45,7 @@
 	"position" : "Manager, Solutions Architects",
 	"username" : "tmarasca",
 	"email" : "travis.marasca@deque.com",
-	"password" : "$2a$10$npKnoATtwCKs3RTuQ2tPR.hNRIb1m/zUVdsk6AHZ1JuJaJdXlt7ne"
+	"password" : "$2a$10$hSgXD1cMTdozu1j7zqId7O28MfUsRIuHjeYj2SkYuNDVGgDJcBfiO"
 }, {
 	"_id" : "5c13f55a2a0c15058b68a039",
 	"confirmed" : true,

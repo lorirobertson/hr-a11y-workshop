@@ -44,7 +44,6 @@ export default class BlogHome extends React.Component {
             if ( e === null ) {
                 Router.push(`/news`);
             } else {
-                console.log(e);
                 Router.push(`/news/category/${e}`);
             }
         });
