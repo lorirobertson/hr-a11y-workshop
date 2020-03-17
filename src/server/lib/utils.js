@@ -77,18 +77,30 @@ const parseHelpersFromQuery = async (querystring) => {
 
 const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-const calcHoursByWeek = (data) => {
-    const calculated = data.reduce((a,b) => {
-        return {
-            sunday: a.sunday + b.sunday,
-            monday: a.monday + b.monday,
-            tuesday: a.tuesday + b.tuesday,
-            wednesday: a.wednesday + b.wednesday,
-            thursday: a.thursday + b.thursday,
-            friday: a.friday + b.friday,
-            saturday: a.saturday + b.saturday,
-        }
-    });
+const calcHoursByWeek = (data=[]) => {
+    let calculated = {
+        sunday: 0,
+        monday: 0,
+        tuesday: 0,
+        wednesday: 0,
+        thursday: 0,
+        friday: 0,
+        saturday: 0,
+    };
+
+    if ( data.length ) {
+        calculated = data.reduce((a,b) => {
+            return {
+                sunday: a.sunday + b.sunday,
+                monday: a.monday + b.monday,
+                tuesday: a.tuesday + b.tuesday,
+                wednesday: a.wednesday + b.wednesday,
+                thursday: a.thursday + b.thursday,
+                friday: a.friday + b.friday,
+                saturday: a.saturday + b.saturday,
+            }
+        });
+    }
 
     let totalHours = 0;
     Object.keys(calculated).forEach(k => {
