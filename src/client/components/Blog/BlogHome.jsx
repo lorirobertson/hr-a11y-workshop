@@ -4,6 +4,7 @@ import _ from 'lodash';
 import BlogList from './BlogList';
 import BlogPost from './BlogPost';
 import Router from 'next/router';
+import Link from 'next/link';
 
 export default class BlogHome extends React.Component {
     constructor(props) {
@@ -40,13 +41,7 @@ export default class BlogHome extends React.Component {
     }
     
     changeCategory(e) {
-        this.setState({ category: e }, ()=> {
-            if ( e === null ) {
-                Router.push(`/news`);
-            } else {
-                Router.push(`/news/category/${e}`);
-            }
-        });
+        this.setState({ category: e });
     }
 
     render() {
@@ -80,11 +75,12 @@ export default class BlogHome extends React.Component {
 
                         <p className="h5 text-center">Categories</p>
                         <div className="list-group">
-                            <a
-                                href="javascript:void(0)"
-                                className="list-group-item list-group-item-action"
-                                onClick={()=>this.changeCategory(null)}
-                            >All Categories</a>
+                            <Link href="/news">
+                                <a
+                                    href="/news"
+                                    className="list-group-item list-group-item-action"
+                                >All Categories</a>
+                            </Link>
                             {
                                 categories
                                     .sort((a,b) => {
@@ -93,12 +89,18 @@ export default class BlogHome extends React.Component {
                                     })
                                     .map((category, index) => {
                                         let isActive = category == this.state.category ? 'active' : '';
-                                        return <a
-                                                    href="javascript:void(0)"
-                                                    key={index}
+                                        return (
+                                            <Link
+                                                key={index}
+                                                href="/news/category/[category]"
+                                                as={`/news/category/${category}`}
+                                            >
+                                                <a
                                                     className={'list-group-item list-group-item-action ' + isActive}
-                                                    onClick={()=>this.changeCategory(category)}
+                                                    onClick={() => this.changeCategory(category)}
                                                 >{category}</a>
+                                            </Link>
+                                        )
                                     })
                             }
                         </div>
