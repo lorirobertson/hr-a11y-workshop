@@ -47,6 +47,7 @@ const Topbar = () => {
                 
                 <Link href="/stuff-shop/cart">
                     <MenuItem
+                        id="btn-shopping-cart"
                         className="btn btn-link mr-2">
                         <i className="fas fa-shopping-cart"></i>
                     </MenuItem>
@@ -54,6 +55,7 @@ const Topbar = () => {
 
                 <MenuItem
                     onClick={logout}
+                    id="btn-sign-out"
                     className="btn btn-link">
                     <i className="fas fa-sign-out-alt"></i>
                 </MenuItem>

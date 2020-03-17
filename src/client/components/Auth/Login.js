@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import styled, { css } from 'styled-components';
@@ -53,14 +53,21 @@ const Login = () => {
     const inpUsername = useRef(null);
     const inpPassword = useRef(null);
 
+    const [username, setUsername] = useState(null);
+    const [password, setPassword] = useState(null);
     const [loginError, setLoginError] = useState(false);
+
+    useEffect(() => {
+        if ( loginError ) {
+            setLoginError(false);
+        }
+    }, [username, password]);
 
     function handleSubmit(e) {
         e.preventDefault();
 
         signIn(inpUsername.current.value, inpPassword.current.value);
     }
-
 
     async function signIn(identifier, password) {
         if ( identifier && password ) {
@@ -74,20 +81,47 @@ const Login = () => {
         }    
     } 
 
+
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
 
                 <h4>Please Sign In</h4>
 
-                <div className="alert alert-danger my-3" hidden={!loginError}>
+                <div
+                    className="alert alert-danger my-3"
+                    hidden={!loginError}
+                >
                     The username and password combination you provided don't match.
                 </div>
 
-                <FormControl
+                <div id="form-group-username" className="my-3">
+                    <input
+                        ref={inpUsername}
+                        name="username"
+                        id="username"
+                        type="text"
+                        className="form-control"
+                        onChange={e => setUsername(e.target.value)}
+                    />
+                </div>
+
+                <div id="form-group-password" className="my-3">
+                    <input
+                        ref={inpPassword}
+                        name="password"
+                        id="password"
+                        type="password"
+                        className="form-control"
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                </div>
+
+                {/* <FormControl
                     ref={inpUsername}
                     name="username"
                     type="text"
+                    onChange={e => setUsername(e.target.value)}
                     top
                 />
 
@@ -97,15 +131,21 @@ const Login = () => {
                     type="text"
                     bottom
                     type="password"
-                />
+                    onChange={e => setPassword(e.target.value)}
+                /> */}
 
-                <button className="btn btn-lg btn-primary btn-block">Sign In!</button>
+                <button
+                    className="btn btn-lg btn-primary btn-block"
+                    disabled={!username || !password}
+                >
+                    Sign In!
+                </button>
 
-                <Link href="/register">
+                {/* <Link href="/register">
                     <a className="mt-4 btn btn-link btn-block">
                         Need an account? Register here.
                     </a>
-                </Link>
+                </Link> */}
 
             </Form>
         </Container>

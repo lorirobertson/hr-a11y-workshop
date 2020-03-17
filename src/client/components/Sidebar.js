@@ -70,7 +70,7 @@ const Sidebar = () => {
     return (
         <SidebarContainer id="sidebar">
             <Link href="/">
-                <Logo>
+                <Logo href="#" id="main-logo" aria-label="HR A11y Logo">
                     <span className="fa-stack fa-3x">
                         <i className="fas fa-circle fa-stack-2x"></i>
                         <i className="fas fa-bolt fa-stack-1x fa-inverse"></i>
@@ -79,28 +79,28 @@ const Sidebar = () => {
             </Link>
 
             <Link href="/">
-                <NavItem active={currentPath==='/'}>
+                <NavItem active={currentPath==='/'} href="#" id="link-home">
                     <i className="fas fa-home"></i>
                     Home
                 </NavItem>
             </Link>
 
             <Link href="/timesheets">
-                <NavItem active={currentPath==='/timesheets'}>
+                <NavItem active={currentPath==='/timesheets'} href="#" id="link-timesheets">
                     <i className="fas fa-clock"></i>
                     Timesheets
                 </NavItem>
             </Link>
 
             <Link href="/stuff-shop">
-                <NavItem active={currentPath==='/stuff-shop'}>
+                <NavItem active={currentPath==='/stuff-shop'} href="#" id="link-stuffshop">
                     <i className="fas fa-shopping-cart"></i>
                     Stuff Shop
                 </NavItem>
             </Link>
 
             <Link href="/news">
-                <NavItem active={currentPath==='/news'}>
+                <NavItem active={currentPath==='/news'} href="#" id="link-news">
                     <i className="fas fa-book"></i>
                     News
                 </NavItem>
