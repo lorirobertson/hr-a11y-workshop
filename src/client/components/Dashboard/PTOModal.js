@@ -1,54 +1,49 @@
-import React, { Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import FormControl from '../FormControl';
 
-export default class PTOModal extends React.Component {
-    constructor(props) {
-        super(props);
+const PTOModal = ({
 
-        this.state = {
-            modal: false,
-            request: {
-                type: '',
-                hours: '',
-                description: ''
-            }
-        };
+}) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [inpType, setInpType] = useState(null);
+    const [inpHours, setInpHours] = useState(null);
+    const [inpDesc, setInpDesc] = useState(null);
+    const [disableSubmit, setDisableSubmit] = useState(true);
 
-        this.toggle = this.toggle.bind(this);
+    useEffect(() => {
+        if ( inpType && inpHours && inpDesc ) {
+            setDisableSubmit(false);
+        } else {
+            setDisableSubmit(true);
+        }
+    }, [inpType, inpHours, inpDesc]);
+
+    function clearForm() {
+        setInpType(null);
+        setInpHours(null);
+        setInpDesc(null);
+        setIsOpen(false);
     }
 
-    toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }    
+    return (
+        <>
+            <Button
+                id="openPTOModal"
+                block
+                color="info"
+                size="lg"
+                onClick={() => setIsOpen(!isOpen)}
+                >Start a new PTO Request
+            </Button>
 
-    componentDidMount() {}
-
-    handleChange(e) {
-        let state = {};
-        state[e.target.name] = e.target.value;
-
-        this.setState({
-            request: Object.assign({}, this.state.request, state)
-        });
-    }
-
-    render() {
-        const disableSubmit = (this.state.request.type && this.state.request.hours) ? '' : 'disabled';
-        return (
-            <Fragment>
-                <Button
-                    id="openPTOModal"
-                    block
-                    color="info"
-                    size="lg"
-                    onClick={this.toggle}
-                    >Start a new PTO Request
-                </Button>
-                <Modal keyboard={false} id="PTORequestModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <Modal
+                keyboard={false}
+                id="PTORequestModal"
+                isOpen={isOpen}
+                toggle={() => setIsOpen(!isOpen)}
+            >
                     <ModalHeader>New PTO Request</ModalHeader>
                     <ModalBody>
                         <FormControl
@@ -56,8 +51,8 @@ export default class PTOModal extends React.Component {
                             id="type"
                             name="type"
                             label="Type"
-                            value={this.state.request.type}
-                            onChange={(e)=>this.handleChange(e)}
+                            value={inpType}
+                            onChange={(e) => setInpType(e.target.value)}
                             options={[
                                 {value: '', label: 'PTO Type - Select one'},
                                 {value: 1, label: 'Floating Holiday'},
@@ -71,29 +66,29 @@ export default class PTOModal extends React.Component {
                             id="hours"
                             name="hours"
                             label="Hours"
-                            value={this.state.request.hours}
-                            onChange={(e)=>this.handleChange(e)}
+                            value={inpHours}
+                            onChange={(e)=> setInpHours(e.target.value)}
                         />
                         <FormControl
                             type="textarea"
                             id="description"
                             name="description"
                             label="Description"
-                            value={this.state.request.description}
-                            onChange={(e)=>this.handleChange(e)}
+                            value={inpDesc}
+                            onChange={(e)=>setInpDesc(e.target.value)}
                         />
                     </ModalBody>
                     <ModalFooter>
                         <div
                             id="fake-cancel-button"
                             className="btn btn-outline-danger"
-                            onClick={this.toggle}
+                            onClick={() => setIsOpen(!isOpen)}
                             > Cancel
                         </div>
                         <div
                             id="fake-submit-button"
-                            className={`btn btn-primary ${disableSubmit}`}
-                            onClick={disableSubmit ? null : this.toggle}
+                            className={`btn btn-primary ${disableSubmit ? 'disabled' :''}`}
+                            onClick={disableSubmit ? () => null : () => clearForm()}
                             > Submit Request!
                         </div>
                         {/* <Button
@@ -111,7 +106,8 @@ export default class PTOModal extends React.Component {
                         </Button> */}
                     </ModalFooter>
                 </Modal>
-            </Fragment>
-        );
-    }
+        </>
+    );
 }
+
+export default PTOModal;
