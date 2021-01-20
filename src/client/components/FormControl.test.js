@@ -20,7 +20,7 @@ const wrapper = mount(elm);
 
 describe("<FormControl />", () => {
     afterAll((done) => {
-        buildReports().then(done)
+        buildReports().then(done);
     });
 
     it("renders the correct input element.", (done) => {
