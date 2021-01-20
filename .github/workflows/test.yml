@@ -13,10 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    fail-fast: false
     
     strategy:
+      fail-fast: false
       matrix:
         node-version: [14.x]
     steps:
