@@ -61,9 +61,6 @@
     "email": "joshua.mcclure@deque.com",
     "url": "http://www.deque.com"
   },
-  "engines": {
-    "node": "12.14.1"
-  },
   "maintainers": [
     {
       "name": "Joshua McClure",
