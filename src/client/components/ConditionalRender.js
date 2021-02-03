@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ condition=false, children }) => {
+const ConditionalRender = ({ condition=false, children }) => {
 	if ( condition === false ) return '';
 	return (
 		<>
@@ -8,3 +8,5 @@ export default ({ condition=false, children }) => {
 		</>
 	);
 };
+
+export default ConditionalRender;
