@@ -1,6 +1,7 @@
 import React from 'react';
-import Avatar from './Avatar';
-import { render } from '@testing-library/react';
+import PTOModal from './PTOModal';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import "babel-polyfill"
 
 // Step 1: import the libraries
@@ -13,38 +14,34 @@ const axeReporter = new AxeDevToolsReporter("HRA11Y", "./a11y-results/");
 var wrapper = null;
 var elm = null;
 
-describe('<Avitar />', () => {
+describe('<PTOModal />', () => {
     
     beforeEach(async () => {
         // Step 3: initialize the rules engine
         await axeDevTools.init('wcag21');
         
-        const { container } = render(
-            <Avatar
-                src="https://s.gravatar.com/avatar/a907e0ca029d67e236ad3b40b48d8164?s=80"
-                alt="my image"
-            />
-        );
-        
+        const { container } = render(<PTOModal />);
+
         wrapper = container;
-        elm = wrapper.querySelector('img');
     });
 
     it('passes accessibility checks', async () => {
         // Step 4: run accessibility tests
         const results = await axeDevTools.run(wrapper);
-        axeReporter.logTestResult("Avitar", results);
+        axeReporter.logTestResult("PTOModal", results);
         if ( process.env.ASSERT_A11y )
             expect(results.violations.length).toBe(0);
     });
 
-    it('renders the component with an image element', () => {
-        expect(wrapper).toContainElement(elm);
+    it('modal is closed on render', () => {
+        const modal = wrapper.querySelector('#PTORequestModal');
+        expect(modal).not.toBeInTheDocument();
     });
 
-    it('has the provided attributes', () => {
-        expect(elm).toHaveAttribute('src', 'https://s.gravatar.com/avatar/a907e0ca029d67e236ad3b40b48d8164?s=80');
-        expect(elm).toHaveAttribute('alt', 'my image');
+    it('modal is visible when button is clicked', () => {
+        userEvent.click(screen.getByText('Start a new PTO Request'));
+        const modal = wrapper.querySelector('#PTORequestModal');
+        expect(modal).not.toBeInTheDocument();
     });
 
     afterAll(async () => {

@@ -13,7 +13,7 @@ const axeReporter = new AxeDevToolsReporter("HRA11Y", "./a11y-results/");
 var wrapper = null;
 var elm = null;
 
-describe('<FormControl />', () => {
+describe('<Login />', () => {
     
     beforeEach(async () => {
         // Step 3: initialize the rules engine
@@ -29,7 +29,8 @@ describe('<FormControl />', () => {
         // Step 4: run accessibility tests
         const results = await axeDevTools.run(wrapper);
         axeReporter.logTestResult("Login", results);
-        expect(results.violations.length).toBe(0);
+        if ( process.env.ASSERT_A11y )
+            expect(results.violations.length).toBe(0);
     });
 
     it('contains credential fields', () => {

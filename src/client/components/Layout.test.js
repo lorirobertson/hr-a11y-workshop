@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from './Avatar';
+import Layout from './Layout';
 import { render } from '@testing-library/react';
 import "babel-polyfill"
 
@@ -13,38 +13,34 @@ const axeReporter = new AxeDevToolsReporter("HRA11Y", "./a11y-results/");
 var wrapper = null;
 var elm = null;
 
-describe('<Avitar />', () => {
+describe('<Layout />', () => {
     
     beforeEach(async () => {
         // Step 3: initialize the rules engine
         await axeDevTools.init('wcag21');
         
-        const { container } = render(
-            <Avatar
-                src="https://s.gravatar.com/avatar/a907e0ca029d67e236ad3b40b48d8164?s=80"
-                alt="my image"
-            />
-        );
+        const { container } = render(<Layout></Layout>);
         
         wrapper = container;
-        elm = wrapper.querySelector('img');
+        elm = wrapper.querySelector('#app-container');
     });
 
     it('passes accessibility checks', async () => {
         // Step 4: run accessibility tests
         const results = await axeDevTools.run(wrapper);
-        axeReporter.logTestResult("Avitar", results);
+        axeReporter.logTestResult("Layout", results);
         if ( process.env.ASSERT_A11y )
             expect(results.violations.length).toBe(0);
     });
 
-    it('renders the component with an image element', () => {
-        expect(wrapper).toContainElement(elm);
+    it('should contain a sidebar', () => {
+        const sidebar = elm.querySelector('aside#sidebar');
+        expect(wrapper).toContainElement(sidebar);
     });
 
-    it('has the provided attributes', () => {
-        expect(elm).toHaveAttribute('src', 'https://s.gravatar.com/avatar/a907e0ca029d67e236ad3b40b48d8164?s=80');
-        expect(elm).toHaveAttribute('alt', 'my image');
+    it('should contain a header', () => {
+        const header = elm.querySelector('nav#topbar');
+        expect(wrapper).toContainElement(header);
     });
 
     afterAll(async () => {
