@@ -29,7 +29,7 @@ describe('<PTOModal />', () => {
         // Step 4: run accessibility tests
         const results = await axeDevTools.run(wrapper);
         axeReporter.logTestResult("PTOModal", results);
-        if ( process.env.ASSERT_A11y )
+        if ( process.env.ASSERT_A11Y )
             expect(results.violations.length).toBe(0);
     });
 

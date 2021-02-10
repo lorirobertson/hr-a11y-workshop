@@ -37,7 +37,7 @@ describe('<FormControl />', () => {
         // Step 4: run accessibility tests
         const results = await axeDevTools.run(wrapper);
         axeReporter.logTestResult("FormControl", results);
-        if ( process.env.ASSERT_A11y )
+        if ( process.env.ASSERT_A11Y )
             expect(results.violations.length).toBe(0);
     });
 
