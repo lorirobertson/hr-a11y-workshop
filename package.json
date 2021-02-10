@@ -16,7 +16,6 @@
     "app-root-path": "^3.0.0",
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
     "diskdb": "^0.1.17",
@@ -47,15 +46,24 @@
     "winston-daily-rotate-file": "^4.4.2"
   },
   "devDependencies": {
+    "@axe-devtools/browser": "^4.1.0",
+    "@axe-devtools/jest": "file:axe-devtools-jest-1.0.0.tgz",
+    "@axe-devtools/reporter": "^4.1.0",
     "@babel/register": "^7.8.3",
     "@deque/attest": "^2.10.0",
     "@deque/attest-node": "^2.10.0",
     "@deque/attest-reporter": "^2.10.0",
+    "@testing-library/dom": "^7.29.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
     "axe-core": "^3.4.1",
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.3.0",
     "cypress": "^6.4.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "lodash.merge": "^4.6.2"
   },
   "author": {
     "name": "Joshua McClure",

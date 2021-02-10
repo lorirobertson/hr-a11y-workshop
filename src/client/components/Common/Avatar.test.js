@@ -1,5 +1,5 @@
 import React from 'react';
-import FormControl from './FormControl';
+import Avatar from './Avatar';
 import { render } from '@testing-library/react';
 import "babel-polyfill"
 
@@ -11,43 +11,39 @@ import AxeDevToolsReporter from '@axe-devtools/reporter';
 const axeReporter = new AxeDevToolsReporter("HRA11Y", "./a11y-results/");
 
 var wrapper = null;
-var inputElm = null;
+var elm = null;
 
-describe('<FormControl />', () => {
+describe('<Avitar />', () => {
     
     beforeEach(async () => {
         // Step 3: initialize the rules engine
         await axeDevTools.init('wcag21');
         
         const { container } = render(
-            <FormControl
-                id="my-form-element"
-                name="formElement"
-                type="input"
-                label=""
-                value="is it the same?"
+            <Avatar
+                src="https://s.gravatar.com/avatar/a907e0ca029d67e236ad3b40b48d8164?s=80"
+                alt="my image"
             />
         );
-
+        
         wrapper = container;
-        inputElm = wrapper.querySelector('#my-form-element');
+        elm = wrapper.querySelector('img');
     });
 
     it('passes accessibility checks', async () => {
         // Step 4: run accessibility tests
         const results = await axeDevTools.run(wrapper);
-        axeReporter.logTestResult("FormControl", results);
+        axeReporter.logTestResult("Avitar", results);
         expect(results.violations.length).toBe(0);
     });
 
-    it('renders the component with an input element', () => {
-        expect(wrapper).toContainElement(inputElm);
+    it('renders the component with an image element', () => {
+        expect(wrapper).toContainElement(elm);
     });
 
     it('has the provided attributes', () => {
-        expect(inputElm).toHaveAttribute('type', 'input');
-        expect(inputElm).toHaveAttribute('name', 'formElement');
-        expect(inputElm).toHaveValue('is it the same?');
+        expect(elm).toHaveAttribute('src', 'https://s.gravatar.com/avatar/a907e0ca029d67e236ad3b40b48d8164?s=80');
+        expect(elm).toHaveAttribute('alt', 'my image');
     });
 
     afterAll(async () => {

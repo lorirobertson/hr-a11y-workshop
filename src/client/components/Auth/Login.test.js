@@ -1,5 +1,5 @@
 import React from 'react';
-import FormControl from './FormControl';
+import Login from './Login';
 import { render } from '@testing-library/react';
 import "babel-polyfill"
 
@@ -11,7 +11,7 @@ import AxeDevToolsReporter from '@axe-devtools/reporter';
 const axeReporter = new AxeDevToolsReporter("HRA11Y", "./a11y-results/");
 
 var wrapper = null;
-var inputElm = null;
+var elm = null;
 
 describe('<FormControl />', () => {
     
@@ -19,35 +19,27 @@ describe('<FormControl />', () => {
         // Step 3: initialize the rules engine
         await axeDevTools.init('wcag21');
         
-        const { container } = render(
-            <FormControl
-                id="my-form-element"
-                name="formElement"
-                type="input"
-                label=""
-                value="is it the same?"
-            />
-        );
-
+        const { container } = render(<Login />);
+        
         wrapper = container;
-        inputElm = wrapper.querySelector('#my-form-element');
+        elm = wrapper.querySelector('form');
     });
 
     it('passes accessibility checks', async () => {
         // Step 4: run accessibility tests
         const results = await axeDevTools.run(wrapper);
-        axeReporter.logTestResult("FormControl", results);
+        axeReporter.logTestResult("Login", results);
         expect(results.violations.length).toBe(0);
     });
 
-    it('renders the component with an input element', () => {
-        expect(wrapper).toContainElement(inputElm);
+    it('contains credential fields', () => {
+        expect(elm.querySelectorAll('input').length).toBe(2);
     });
 
-    it('has the provided attributes', () => {
-        expect(inputElm).toHaveAttribute('type', 'input');
-        expect(inputElm).toHaveAttribute('name', 'formElement');
-        expect(inputElm).toHaveValue('is it the same?');
+    it('Submit button should be disabled if credentials are empty ', () => {
+        const btn = elm.querySelector('button');
+        expect(wrapper).toContainElement(btn);
+        expect(btn).toBeDisabled();
     });
 
     afterAll(async () => {

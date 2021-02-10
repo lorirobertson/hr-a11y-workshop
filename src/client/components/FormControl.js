@@ -1,47 +1,48 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { FormGroup, Label, Input, } from 'reactstrap';
 import DatePicker from 'react-datepicker';
 
-export default class FormControl extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {}
-  }
-
-  render() {
-    return (
-        <FormGroup>
-          {/* <label htmlFor={this.props.id}>{this.props.label}</label> */}
-          {
-            ( this.props.type === 'datepicker' ) ?
-              <DatePicker
-                id={this.props.id}
-                name={this.props.name}
-                //label={this.props.label}
-                // aria-label={this.props.label}
-                className="form-control"
-                placeholderText={this.props.label}
-                {...this.props}
-              />
-            :
-              <Input
-                id={this.props.id}
-                name={this.props.name}
-                // aria-label={this.props.label}
-                type={this.props.type}
-                placeholder={this.props.label}
-                defaultValue={this.props.value}
-                onChange={this.props.onChange}
-              >
-                {
-                  this.props.options ?
-                    this.props.options.map((opt,index) => <option key={index} value={opt.value}>{opt.label}</option>)
-                  : null
-                }
-              </Input> 
-          }
-        </FormGroup>
-    )
-  }
+const FormControl = ({
+  id,
+  name,
+  label,
+  type="text",
+  value,
+  options,
+  onChange=()=>{},
+}) => {
+  return (
+    <FormGroup>
+      {/* <label htmlFor={id}>{label}</label> */}
+      {
+        (type === 'datepicker') ?
+          <DatePicker
+            id={id}
+            name={name}
+            //label={label}
+            // aria-label={label}
+            className="form-control"
+            placeholderText={label}
+          />
+          :
+          <Input
+            id={id}
+            name={name}
+            aria-no_going_to_work={label}
+            type={type}
+            placeholder={label}
+            defaultValue={value}
+            onChange={onChange}
+          >
+            {
+              options ?
+                options.map((opt, index) => <option key={index} value={opt.value}>{opt.label}</option>)
+                : null
+            }
+          </Input>
+      }
+    </FormGroup>
+  );
 }
+
+export default FormControl;
