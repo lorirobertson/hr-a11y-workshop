@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@axe-devtools/browser": "^4.1.0",
+    "@axe-devtools/cli": "^4.1.0",
     "@axe-devtools/jest": "file:axe-devtools-jest-1.0.0.tgz",
     "@axe-devtools/reporter": "^4.1.0",
     "@babel/register": "^7.8.3",
@@ -56,6 +57,7 @@
     "@testing-library/dom": "^7.29.4",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.6.3",
     "axe-core": "^3.4.1",
     "babel-polyfill": "^6.26.0",
     "chai": "^4.3.0",
