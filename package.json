@@ -1,6 +1,6 @@
 {
   "name": "hr-a11y",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "main": "src/server/server.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "next build ./src/client",
     "start": "NODE_ENV=production node src/server/server.js",
     "test": "rm -rf ./a11y-results && jest",
-    "aget": "rm -rf aget/testOutput && aget spec --headless ./aget/specs/main.json ./aget/testOutput --format html+junit"
+    "axe-cli": "rm -rf cli/testOutput && axe spec ./cli/specs/main.json ./cli/testOutput --format html+junit --headless"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.0",
@@ -28,7 +28,7 @@
     "md5": "^2.2.1",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
-    "next": "^9.2.1",
+    "next": "^10.0.8",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-cookie-consent": "^3.0.0",
@@ -37,35 +37,25 @@
     "react-is": "^17.0.1",
     "react-ratings-declarative": "^3.4.1",
     "reactstrap": "^8.4.1",
-    "serve": "^11.3.0",
     "styled-components": "^5.0.0",
     "uuid": "^3.4.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^4.4.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^4.4.2"
   },
   "devDependencies": {
     "@axe-devtools/browser": "^4.1.0",
     "@axe-devtools/cli": "^4.1.0",
-    "@axe-devtools/jest": "file:axe-devtools-jest-1.0.0.tgz",
     "@axe-devtools/reporter": "^4.1.0",
     "@babel/register": "^7.8.3",
-    "@deque/attest": "^2.10.0",
-    "@deque/attest-node": "^2.10.0",
-    "@deque/attest-reporter": "^2.10.0",
     "@testing-library/dom": "^7.29.4",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
     "axe-core": "^3.4.1",
     "babel-polyfill": "^6.26.0",
-    "chai": "^4.3.0",
     "cypress": "^6.4.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",
-    "lodash.merge": "^4.6.2"
+    "webpack": "^5.24.4"
   },
   "author": {
     "name": "Joshua McClure",

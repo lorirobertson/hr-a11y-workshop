@@ -66,3 +66,5 @@ a11y-reports/
 a11y-results/
 .DS_store
 # .npmrc
+
+cli/testOutput/*
