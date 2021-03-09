@@ -113,7 +113,7 @@ export default class ProductDetail extends React.Component {
     render() {
         const items = [
             {
-                src: this.state.product.img.src,
+                src: `/${this.state.product.img.filename}`,
                 altText: this.state.product.img.alt,
                 caption: ' ',
                 header: 'Product Image 1'

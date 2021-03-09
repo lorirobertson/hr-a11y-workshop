@@ -56,9 +56,13 @@ export default class ProductCard extends React.Component {
         }
 
         return output;
-    }    
+    }
 
     render() {
+        if ( !this.state.product._id ) {
+            return 'loading...'
+        }
+
         return (
             <Card className="product-card" id={`product-${this.state.product._id}`}>
                 <Link
@@ -69,7 +73,7 @@ export default class ProductCard extends React.Component {
                         <CardImg
                             top
                             width="100%"
-                            src={this.state.product.img.src}
+                            src={`/${this.state.product.img.filename}`}
                             // alt={this.state.product.img.alt}
                         />
                     </a>

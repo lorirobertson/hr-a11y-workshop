@@ -21,7 +21,7 @@ export default class Main extends React.Component {
         request
             .get('/products')
             .then(resp => {
-                this.setState({products: resp.data.slice(0,2)});
+                this.setState({products: resp.data.slice(2,4)});
             })
             .catch(err => console.log(err));
     }
@@ -46,7 +46,7 @@ export default class Main extends React.Component {
                         </CardBody>
                     </Card>
 
-                    <Row>
+                    <Row className="mb-4">
                         { 
                             this.state.products
                                 .map((product, index) => {
