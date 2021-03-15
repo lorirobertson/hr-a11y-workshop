@@ -29,14 +29,13 @@ const PTOModal = ({
 
     return (
         <>
-            <Button
+            <div
                 id="openPTOModal"
-                block
-                color="info"
-                size="lg"
+                className="btn btn-info btn-lg btn-block"
                 onClick={() => setIsOpen(!isOpen)}
-                >Start a new PTO Request
-            </Button>
+            >
+                Start a new PTO Request
+            </div>
 
             <Modal
                 keyboard={false}
