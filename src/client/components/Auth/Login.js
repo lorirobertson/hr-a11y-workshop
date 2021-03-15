@@ -1,8 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
 import Router from 'next/router';
 import styled, { css } from 'styled-components';
-//import request from '../../_utilities/request';
 import { authenticateUser, getUserInfo } from './auth-utils';
 
 const Container = styled.div`
@@ -20,33 +18,6 @@ const Form = styled.form`
     border-radius: 2px;
     border: 1px solid #e8e9ec;
     box-shadow: 0px 1px 18px rgba(50, 50, 50, 0.2);
-`;
-
-const FormControl = styled.input`
-    display: block;
-    width: 100%;
-    height: calc(2.25rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-
-    ${props => props.top && css`
-        margin-bottom: -1px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    `}
-
-    ${props => props.bottom && css`
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    `}
 `;
 
 const Login = () => {
@@ -79,8 +50,7 @@ const Login = () => {
                 setLoginError(true);
             }
         }    
-    } 
-
+    }
 
     return (
         <Container>
@@ -117,35 +87,12 @@ const Login = () => {
                     />
                 </div>
 
-                {/* <FormControl
-                    ref={inpUsername}
-                    name="username"
-                    type="text"
-                    onChange={e => setUsername(e.target.value)}
-                    top
-                />
-
-                <FormControl
-                    ref={inpPassword}
-                    name="password"
-                    type="text"
-                    bottom
-                    type="password"
-                    onChange={e => setPassword(e.target.value)}
-                /> */}
-
                 <button
                     className="btn btn-lg btn-primary btn-block"
                     disabled={!username || !password}
                 >
                     Sign In!
                 </button>
-
-                {/* <Link href="/register">
-                    <a className="mt-4 btn btn-link btn-block">
-                        Need an account? Register here.
-                    </a>
-                </Link> */}
 
             </Form>
         </Container>

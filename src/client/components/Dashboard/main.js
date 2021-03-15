@@ -21,7 +21,7 @@ export default class Main extends React.Component {
         request
             .get('/products')
             .then(resp => {
-                this.setState({products: resp.data.slice(0,2)});
+                this.setState({products: resp.data.slice(2,4)});
             })
             .catch(err => console.log(err));
     }
@@ -36,7 +36,7 @@ export default class Main extends React.Component {
                             <WeeklyTotal />
                         </CardBody>
                     </Card>
-
+                    
                     <Card outline color="primary" className="mb-4">
                         <CardHeader>
                             <h5>Corporate Message</h5>
@@ -46,7 +46,7 @@ export default class Main extends React.Component {
                         </CardBody>
                     </Card>
 
-                    <Row>
+                    <Row className="mb-4">
                         { 
                             this.state.products
                                 .map((product, index) => {
@@ -58,32 +58,38 @@ export default class Main extends React.Component {
                     </Row>
 
 
-                    <div className="embed-responsive embed-responsive-16by9 mb-4">
+                    {/* <div className="embed-responsive embed-responsive-16by9 mb-4">
                         <iframe
                             className="embed-responsive-item"
                             scrolling="no"
                             src="https://www.openstreetmap.org/export/embed.html?bbox=-78.33675742149354%2C38.381679017781465%2C-76.37295126914978%2C39.36102540645581&amp;layer=mapnik">
                         </iframe>
-                    </div>                    
+                    </div>                     */}
                 </Col>
                 <Col lg="6">
-                    <div className="embed-responsive embed-responsive-16by9 mb-4">
-                        <iframe
-                            className="embed-responsive-item"
-                            src="https://www.youtube.com/embed/2dHXGiOwBBQ"
-                            allowFullScreen>
-                        </iframe>
-                    </div>
-
-                    <LatestBlogPost latest teaser />
-
                     <Card className="mb-4">
+                        <CardHeader>
+                            <p className="h5">
+                                Request PTO
+                            </p>
+                        </CardHeader>
                         <CardBody>
-                            <CardTitle>Request PTO</CardTitle>
                             <p>You have a PTO balance of 32 hours.</p>
                             <PTOModal/>
                         </CardBody>
                     </Card>
+
+                    {/* <div className="embed-responsive embed-responsive-16by9 mb-4">
+                        <iframe
+                            src="https://www.youtube.com/embed/dyU9yrRJ5Eg"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            className="embed-responsive-item">
+                        </iframe>
+                    </div> */}
+
+                    <LatestBlogPost latest teaser />
                 </Col>
             </Row>
         );

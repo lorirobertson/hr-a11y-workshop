@@ -1,50 +1,62 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { expect } from 'chai';
 import FormControl from './FormControl';
-import {
-    a11yHelper,
-    reporter,
-    buildReports
-} from '../_utilities/test-helpers/attest';
+import { render } from '@testing-library/react';
+import "babel-polyfill"
 
-const elm = <FormControl
-                id="formElement"
+// Step 1: import the libraries
+import * as axeDevTools from '@axe-devtools/browser';
+import AxeDevToolsReporter from '@axe-devtools/reporter';
+
+// Step 2: initialize the reporter
+const axeReporter = new AxeDevToolsReporter("HRA11Y", "./a11y-results/");
+
+var wrapper = null;
+var inputElm = null;
+
+describe('<FormControl />', () => {
+    
+    beforeEach(async () => {
+        // Step 3: initialize the rules engine
+        await axeDevTools.init('wcag21');
+        
+        const { container } = render(
+            <FormControl
+                id="my-form-element"
                 name="formElement"
                 type="input"
-                label="This is a test"
+                label=""
                 value="is it the same?"
             />
+        );
 
-const wrapper = mount(elm);
-
-describe("<FormControl />", () => {
-    afterAll((done) => {
-        buildReports().then(done);
+        wrapper = container;
+        inputElm = wrapper.querySelector('#my-form-element');
     });
 
-    it("renders the correct input element.", (done) => {
-        expect(wrapper.find('input')).to.have.lengthOf(1);
-
-        a11yHelper(elm).then(results => {
-            reporter.logTestResult('FormControl', results);
-            // expect(results.violations).to.have.lengthOf(0);
-        }).then(done)
-        //done();
+    it('passes accessibility checks', async () => {
+        // Step 4: run accessibility tests
+        const results = await axeDevTools.run(wrapper);
+        axeReporter.logTestResult("FormControl", results);
+        if ( process.env.ASSERT_A11Y )
+            expect(results.violations.length).toBe(0);
     });
 
-    it("sets the properties correctly.", function(done) {
-        expect(wrapper.find('input').prop('id')).to.equal('formElement');
-        expect(wrapper.find('input').prop('name')).to.equal('formElement');
-        expect(wrapper.find('input').type()).to.equal('input');
-        expect(wrapper.find('input').prop('placeholder')).to.equal('This is a test');
-        expect(wrapper.find('input').prop('defaultValue')).to.equal('is it the same?');
-        done();
+    it('renders the component with an input element', () => {
+        expect(wrapper).toContainElement(inputElm);
     });
 
-    it("responds to value change.", function(done) {
-        wrapper.setProps({ value: 'new value' });
-        expect(wrapper.find('input').prop('defaultValue')).to.equal('new value');
-        done();
+    it('has the provided attributes', () => {
+        expect(inputElm).toHaveAttribute('type', 'input');
+        expect(inputElm).toHaveAttribute('name', 'formElement');
+        expect(inputElm).toHaveValue('is it the same?');
     });
+
+    afterAll(async () => {
+        // Step 5: build the reports
+        await Promise.all([
+            axeReporter.buildHTML('./a11y-results/'),
+            axeReporter.buildJUnitXML('./a11y-results/'),
+            axeReporter.buildCSV('./a11y-results/'),
+        ]);
+    });    
 });
