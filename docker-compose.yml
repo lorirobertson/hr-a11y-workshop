@@ -1,0 +1,21 @@
+version: '3'
+services:
+  jenkins:
+    container_name: 'jenkins'
+    restart: always
+    build: ./Jenkins
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+  
+  # hra11y:
+  #   container_name: 'hra11y'
+  #   build: .
+  #   ports:
+  #     - '3001:3001'
+  
+  # chromedriver:
+  #   container_name: 'chromedriver'
+  #   build: ./Chromedriver
+  #   ports:
+  #     - '4444:4444'
