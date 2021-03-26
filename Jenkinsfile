@@ -7,8 +7,11 @@ pipeline {
     stage("Build") {
         steps {
             dir("${env.WORKSPACE}/hr-a11y") {
-                withCredentials([string(credentialsId:'artifactory-api-key', variable: 'KEY')]) {
-                    sh "curl -u\"joshua.mcclure@deque.com\":$KEY \"https://agora.dequecloud.com/artifactory/api/npm/auth\" > .npmrc"
+                withCredentials([
+                    string(credentialsId:'artifactory-api-key', variable: 'KEY'),
+                    string(credentialsId:'artifactory-user', variable: 'USER')
+                ]) {
+                    sh "curl -u\"$USER\":$KEY \"https://agora.dequecloud.com/artifactory/api/npm/auth\" > .npmrc"
                     sh "echo \"registry = https://agora.dequecloud.com/artifactory/api/npm/dequelabs/\" >> .npmrc"
                 }
                 sh "npm install"
