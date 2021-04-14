@@ -1,10 +1,9 @@
-require('dotenv').config();
 const dev = process.env.NODE_ENV !== 'production';
 
-module.exports ={
+module.exports = {
 	cssModules: true,
 	dev,
-	dir: './src/client',
+	dir: './src',
 	future: {
 		webpack5: true,
 	},
