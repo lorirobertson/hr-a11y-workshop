@@ -37,7 +37,7 @@
     "prop-types": "^15.7.2",
     "puppeteer": "^8.0.0",
     "react": "^17.0.2",
-    "react-cookie-consent": "^3.0.0",
+    "react-cookie-consent": "^6.2.3",
     "react-datepicker": "^2.11.0",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
