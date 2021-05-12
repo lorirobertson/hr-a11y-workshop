@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="CompleteVino - Android" timestamp="2021-01-07T18:04:10.248Z" failures="20">
+        <testcase name="EditTextName">
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+        </testcase>
+        <testcase name="EditTextValue">
+            <failure message="Editable Views must not override the Value spoken by TalkBack." impact="Critical"/>
+        </testcase>
+        <testcase name="TouchSizeWcag">
+            <failure message="Active views adhere to WCAG Touch Target Size requirements." impact="Moderate"/>
+            <failure message="Active views adhere to WCAG Touch Target Size requirements." impact="Moderate"/>
+        </testcase>
+        <testcase name="MlButton">
+            <failure message="A view that visually looks like and behaves like a button should be marked up as a button" impact="Moderate"/>
+        </testcase>
+    </testsuite>
+</testsuites>
