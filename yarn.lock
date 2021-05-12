@@ -5633,7 +5633,7 @@
   "resolved" "https://agora.dequecloud.com/artifactory/api/npm/dequelabs/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz"
   "version" "4.1.0"
 
-"postcss@^8.2.1", "postcss@^8.2.2", "postcss@8.2.13":
+"postcss@^8.2.1", "postcss@^8.2.13", "postcss@^8.2.2", "postcss@8.2.13":
   "integrity" "sha1-2+BD4m48Bo5FETse1jddLTfiEp8="
   "resolved" "https://agora.dequecloud.com/artifactory/api/npm/dequelabs/postcss/-/postcss-8.2.13.tgz"
   "version" "8.2.13"
