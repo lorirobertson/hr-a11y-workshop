@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="CompleteVino - Android" timestamp="2021-05-12T20:49:02.465Z" failures="20">
+    <testsuite name="MyView" package="CompleteVino" timestamp="2021-05-12T21:32:00.223Z" failures="20">
         <testcase name="EditTextName">
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
-            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate"/>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
+            <failure message="Views that have modifiable Values should get their name from a nearby Label." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-name.html</failure>
         </testcase>
         <testcase name="EditTextValue">
-            <failure message="Editable Views must not override the Value spoken by TalkBack." impact="Critical"/>
+            <failure message="Editable Views must not override the Value spoken by TalkBack." impact="Critical">Learn more about this issue: https://mobile-docs.deque.com/attest/android/edit-text-value.html</failure>
         </testcase>
         <testcase name="TouchSizeWcag">
-            <failure message="Active views adhere to WCAG Touch Target Size requirements." impact="Moderate"/>
-            <failure message="Active views adhere to WCAG Touch Target Size requirements." impact="Moderate"/>
+            <failure message="Active views adhere to WCAG Touch Target Size requirements." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/android-touch-target-size.html</failure>
+            <failure message="Active views adhere to WCAG Touch Target Size requirements." impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/android-touch-target-size.html</failure>
         </testcase>
         <testcase name="MlButton">
-            <failure message="A view that visually looks like and behaves like a button should be marked up as a button" impact="Moderate"/>
+            <failure message="A view that visually looks like and behaves like a button should be marked up as a button" impact="Moderate">Learn more about this issue: https://mobile-docs.deque.com/attest/android/MlButton.html</failure>
         </testcase>
     </testsuite>
 </testsuites>
