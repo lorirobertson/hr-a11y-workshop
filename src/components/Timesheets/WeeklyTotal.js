@@ -12,10 +12,11 @@ const WeeklyTotal = () => {
     const [totalHours, setTotalHours] = useState(0);
     
     useEffect(() => {
-        request.get(`/timesheets/week/${moment().startOf('week').format('YYYY-MM-DD')}`)
-                .then(resp => {
-                    setTotalHours(resp.data.calculated.totalHours);
-                })
+        fetch(`/api/v1/timesheets/week/${moment().startOf('week').format('YYYY-MM-DD')}`)
+            .then(resp => resp.json())
+            .then(({calculated}) => {
+                setTotalHours(calculated.totalHours);
+            })
     }, []);
 
     const weekStart = moment().startOf('week').format('MM/DD/YYYY');

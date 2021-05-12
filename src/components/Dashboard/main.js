@@ -1,12 +1,11 @@
 import React from 'react';
 import _ from 'lodash';
 import { Row, Col, Card, CardBody, CardTitle, CardHeader, Button } from 'reactstrap';
-import { BlogPost as LatestBlogPost } from '../Blog';
-import { ProductCard } from '../StuffShop';
-// import { WeeklyTotal } from '../Timesheets';
+import { BlogPost as LatestBlogPost } from '@components/Blog';
+import { ProductCard } from '@components/StuffShop';
 import PTOModal from './PTOModal';
-import request from '../../_utilities/request';
-import WeeklyTotal from '../Timesheets/WeeklyTotal';
+import WeeklyTotal from '@components/Timesheets/WeeklyTotal';
+import request from '@utilities/request';
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -18,12 +17,15 @@ export default class Main extends React.Component {
     }
 
     componentDidMount() {
-        request
-            .get('/products')
-            .then(resp => {
-                this.setState({products: resp.data.slice(2,4)});
+        // request.get(`/products`).then(data2=>{
+        //     console.log('data2',data2);
+        // });
+        
+        fetch(`/api/v1/products`)
+            .then(resp => resp.json())
+            .then(data => {
+                this.setState({products: data.slice(2,4)});
             })
-            .catch(err => console.log(err));
     }
 
     render() {

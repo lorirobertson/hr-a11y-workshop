@@ -75,18 +75,19 @@ class BlogPost extends React.Component {
 
   fetchPost(id) {
     if (id)
-      request.get(`/posts/${id}`)
-        .then(resp => {
-            this.setState({...resp.data});
-        })
+      fetch(`/api/v1/posts/${id}`)
+        .then(resp => resp.json())
+        .then(data => this.setState({...data}))
 
     return false;
   }
 
   fetchLatestPost() {
-      request.get(`/posts`).then(resp => {
-            this.setState({...resp.data[resp.data.length - 1]});
-        })
+    fetch(`/api/v1/posts`)
+        .then(resp => resp.json())
+        .then(data => 
+            this.setState({...data[data.length - 1]})    
+        )
   }
 
   truncate(str) {

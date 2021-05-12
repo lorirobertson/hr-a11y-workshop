@@ -35,13 +35,13 @@ export default class ProductDetail extends React.Component {
     }
 
     componentDidMount() {
-        request.get(`/products/${this.props.id}`)
-            .then(resp => {
+        fetch(`/api/v1/products/${this.props.id}`)
+            .then(resp => resp.json())
+            .then(data =>
                 this.setState({
-                    product: resp.data
-                });
-            })
-            .catch(err => console.log(err));
+                    product: data
+                })
+            )
     }
 
     onDismiss() {

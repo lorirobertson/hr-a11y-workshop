@@ -24,13 +24,13 @@ export default class ProductCard extends React.Component {
 
     componentDidMount() {
         if ( this.props._id && (!this.props.title && !this.props.description && !this.props.price) ) {
-            request.get(`/products/${this.props.id}`)
-                .then(resp => {
+            fetch(`/products/${this.props.id}`)
+                .then(resp => resp.json())
+                .then(data => {
                     this.setState({
-                        product: resp.data
+                        product: data
                     });
-                })
-                .catch(err => console.log(err));
+                });
         } else {
             const product = this.props;
             this.setState({

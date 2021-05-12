@@ -14,13 +14,13 @@ export default class ProductList extends React.Component {
     }
 
     componentDidMount() {
-        request.get(`/products`)
-            .then(resp => {
+        fetch(`/api/v1/products`)
+            .then(resp => resp.json())
+            .then(data => 
                 this.setState({
-                    products: resp.data
-                });
-            })
-            .catch(err => console.log(err));
+                    products: data
+                })    
+            )
     }
 
     render() {

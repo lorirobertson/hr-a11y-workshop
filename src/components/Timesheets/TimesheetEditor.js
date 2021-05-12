@@ -3,6 +3,7 @@ import moment from 'moment';
 import FormControl from '../FormControl';
 import { getUserInfo } from '../Auth/auth-utils';
 import request from '../../_utilities/request';
+import { useRouter } from 'next/router';
 
 const TimesheetEditor = ({
     id=null,
@@ -10,8 +11,10 @@ const TimesheetEditor = ({
     timesheet,
     isEdit=false,
 }) => {
+    const router = useRouter();
     const [startDate, setStartDate] = useState(moment().format('MM/DD/YYYY'));
     const [endDate, setEndDate] = useState(null);
+    const [successVisible, setSuccessVisible] = useState(false);
     const [data, setData] = useState({
         date: moment().startOf('week').format('YYYY-MM-DD'),
         project: '',
@@ -39,13 +42,20 @@ const TimesheetEditor = ({
         e.preventDefault();
 
         const requestPromise = isEdit && id ? 
-                                request.put(`/timesheets/${id}`, data)
+                                fetch(`/api/v1/timesheets/${id}`, {
+                                    method: 'PUT',
+                                    body: JSON.stringify(data),
+                                })
                             :
-                                request.post(`/timesheets`, data)
+                                fetch(`/api/v1/timesheets`, {
+                                    method: 'POST',
+                                    body: JSON.stringify(data),
+                                })
                             ;
         requestPromise
             .then((resp)=>{
-                return true;
+                setSuccessVisible(true);
+                setTimeout(() => router.back(), 5000);
             })
             .catch((err)=>{
                 console.log(err)
@@ -77,6 +87,9 @@ const TimesheetEditor = ({
 
     return (
         <>
+            { successVisible ?
+                <div className="alert alert-success">Your timesheet has been saved!</div>
+            : ''}
             {/* <h1>{ isEdit ? 'Edit' : 'Create' } Timesheet</h1> */}
             <p className="text-muted h4">
                 Week of {startDate} - {endDate}

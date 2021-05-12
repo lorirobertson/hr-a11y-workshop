@@ -122,16 +122,16 @@ const TableList = ({
     function fetchData() {
         let route = isDetailedView ? `/timesheets/week/${date}` : `/timesheets/grouped`;
 
-        request.get(route)
-            .then(resp => setData(resp.data))
-            .catch(console.log);
+        fetch(`/api/v1${route}`)
+            .then(resp => resp.json())
+            .then(setData)
     }
 
     function deleteTimesheet(id) {
         if ( window.confirm('Are you sure you want to delete this record?') ) {
-            request.delete(`/timesheets/${id}`)
-                .then(resp => fetchData())
-                .catch(console.log)
+            fetch(`/api/v1/timesheets/${id}`, {method: 'DELETE'})
+                .then(resp => resp.json())
+                .then(() => fetchData())
         }
     }
 

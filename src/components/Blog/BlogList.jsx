@@ -50,12 +50,13 @@ class BlogList extends React.Component {
 
   countPosts() {
     // get the total number of posts
-    request.get(`/posts/count`, this.buildParamsObject())
-      .then((resp)=>{
+    fetch(`/api/v1/posts/count`, this.buildParamsObject())
+      .then(resp => resp.json())
+      .then(({count}) => {
         let paging = {...this.state.paging}
-        paging.totalNumPosts = resp.count;
+        paging.totalNumPosts = count;
         this.setState({ paging });
-      }) 
+      })
   }
 
   sort(data, direction='desc') {
@@ -71,17 +72,17 @@ class BlogList extends React.Component {
   fetchPosts() {
     this.setState({ loading: true });
 
-    request.get(`/posts`, this.buildParamsObject())
-      .then((resp)=>{
+    fetch(`/api/v1/posts`, this.buildParamsObject())
+      .then(resp => resp.json())
+      .then(data => {
         this.setState({ posts: [] });
         this.countPosts();
-        return resp.data;
+        return data;
       })
       .then(data => this.sort(data,this.state.sort))
       .then(data => {
         this.setState({ posts: data, loading: false });
       })
-      .catch(err=>console.log(err));
   }
 
   toggleSort() {
