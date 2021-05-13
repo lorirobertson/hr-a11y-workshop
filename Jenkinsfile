@@ -32,7 +32,6 @@ pipeline {
   post {
     always {
         junit '**/a11y-results/**/*.xml'
-        junit '**/CompleteVino---android.xml'
     }
   }
 }
