@@ -68,3 +68,4 @@ a11y-results/
 # .npmrc
 
 cli/testOutput/*
+Jenkins/volume_backups/*.tar

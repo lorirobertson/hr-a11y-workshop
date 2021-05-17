@@ -1,59 +1,51 @@
 
 # HR A11y
-This is an application for demoing the full Deque Worldspace tool suite.
+This is an application for demoing the full range of the axe DevTools product.
 
-## Tech Stuff
-We use a variety of tools and frameworks in this project to make life _easier_. Here are the main things to know...
-* **Strapi** - Strapi is a headless CMS for Node applications. We are using it for auth, permissions, and as a general API service for data transportation. Check [this link](https://strapi.io/) for more info on Strapi.
-* **MongoDB** - This is the underlying data source. Everything is stored here and is provided to the front-end via the API layer.
-* **React** - The front-end is built entirely on React. It's pretty cool.
-* **Webpack** - (_Only for dev mode_) Webpack helps us dev build, hot reload, and production build the front-end source.
-* **Jasmine** - A popular test runner framework used in TDD (test driven development) practices.
- 
-## Getting Started
-There are a few simple steps you need to follow to get this application up and running.
-
-### Prerequisites
+## Prerequisites
 * NodeJS v10 (or greater)
-* MongoDB v4 (or greater)
+* Docker v20.10 (or greater)
+* The jenkins docker script was desinged for a MacOS environment. If you are using WindowsOS, you will need to run the docker commands manually. Check the `__setup.sh` script file.
 
-### Mongo User
-Create a new mongo user with the script below.
+## Installation
+* First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y.git`
+* Open a command prompt, navigate to the project folder, and run `npm install` or `yarn`
 
-```
-use admin
-db.createUser(
-    {
-        user: "dbo",
-        pwd: "123456",
-        roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
-    }
-)
-```
+## Run the full environment
 
-Then restart mongo with authentication turned on. If you aren't sure about how to do that, [follow this guide](https://docs.mongodb.com/manual/tutorial/enable-authentication/).
+### Jenkins
+* [Download the volume data backup from our SFTP server](https://sftp.dequecloud.com/?u=xaeyn9dtTX&p=4WgeMh6BgQ&path=/hra11y-jenkins.tar)
+* Move the downloaded file to the `{PROJECT_ROOT}/Jenkins/volume_backups`
+* Run the `./__setup.sh` script
+    - if you are getting a permissions error here, run `sudo chmod +x __setup.sh` and try to run again.
+* Start the Jenkins instance by using `docker-compose up --build`
+* Navigate to [http://localhost:8080](http://localhost:8080)
+* The user credentials are:
+    - user: admin
+    - password: password
 
-### MongoDB Restore
-To use some good demo content, fill in the username and password on the command below to import the sample DB.
+### Web Application (server + front-end)
+* In a new command prompt window, start the hr-a11y app by running `npm run dev` or `yarn dev`
+* Open a webbrowser and navigate to [http://localhost:3001](http://localhost:3001)
 
-`mongorestore -u [USERNAME] -p [PASSWORD] --gzip --db "hr-a11y" db_dump/hr-a11y/ --authenticationDatabase=admin`
+### Automated Tests
+* In a new command prompt window, start the automated tests by running `npm test` or `yarn test`
+* You can also navigate to the [jenkins install](http://localhost:8080), navigate to the hra11y project and generate a new build.
 
-### Installation
-First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y.git`.
+### Scenarios
+The front-end is loaded conditions that cause accessibility defects, depending on the day of the week. The goal of this feature is to allow the app to simulate a remediation process over the course of a week, which our tools will be able to discover and report. This is intended for production deployment, however if you find the need to force a certain scenario you can do so by setting the environment variable named `FORCE_SCENARIO` to the scenario of your choosing.
 
-Open a command prompt, navigate to the project folder, and run `npm install` or `yarn`.
- 
-### Run It!
+__Options:__
+| Scenario      | Description   |
+| ------------- | ------------- |
+| baseline  | [DEFAULT] 0% accessibility. You will find many defects across the site. |
+| stage1 | All automated defects in the layout are fixed.  |
+| stage2 | All automated defects in the timesheets section are fixed. |
+| stage3 | All automated defects in the stuff shop section are fixed. |
+| complete | All automated defects have been fixed. |
+  
+<br/>  
+  
+To force a scenario on your local environment, add a line to the `.env` file that looks like this:
 
-#### Dev Mode...
-This will run the server and front-end seperately to make development easier. Since we are using [react-hot-loader](https://www.npmjs.com/package/react-hot-loader), the front-end runs on it's own and sets up a proxy to communicate with the server.
-* Be sure that MongoDB is running!
-* Start the server using `npm start`
-* Start the front-end using `npm run start:dev`
-* Navigate to [http://localhost:9999](http://localhost:9999) in your browser to view
-
-#### Production / Demo Mode...
-* Be sure that MongoDB is running!
-* Build the project using `npm build`
-* Start the project using `npm start`
-* Navigate to [http://localhost:1337](http://localhost:1337) in your browser to view
+`FORCE_SCENARIO=stage3`

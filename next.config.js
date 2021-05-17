@@ -1,10 +1,13 @@
-require('dotenv').config();
-const withCSS = require('@zeit/next-css');
 const dev = process.env.NODE_ENV !== 'production';
 
-module.exports = withCSS({
+module.exports = {
 	cssModules: true,
 	dev,
-	dir: './src/client',
-	publicRuntimeConfig: {}
-});
+	dir: './src',
+	future: {
+		webpack5: true,
+	},
+	env: {
+		FORCE_SCENARIO: process.env.FORCE_SCENARIO,
+	}
+}
