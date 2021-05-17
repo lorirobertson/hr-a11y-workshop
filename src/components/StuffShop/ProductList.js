@@ -3,6 +3,7 @@ import { CardColumns } from 'reactstrap';
 import Link from 'next/link';
 import request from '../../_utilities/request';
 import ProductCard from './ProductCard';
+import { ScenarioTagWrapper } from '@components/Scenario';
 
 export default class ProductList extends React.Component {
     constructor(props) {
@@ -26,7 +27,9 @@ export default class ProductList extends React.Component {
     render() {
         return (
             <div id="product-list">
-                <h1>Stuff Shop</h1>
+                <ScenarioTagWrapper as="h1" original="h2" minScenario="stage3">
+                    Stuff Shop
+                </ScenarioTagWrapper>
                 <CardColumns>
                     {
                         this.state.products

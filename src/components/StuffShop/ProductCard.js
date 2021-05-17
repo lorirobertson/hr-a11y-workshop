@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 import request from '../../_utilities/request';
+import { ScenarioAttributes } from '@components/Scenario';
 
 export default class ProductCard extends React.Component {
     constructor(props) {
@@ -75,6 +76,9 @@ export default class ProductCard extends React.Component {
                             width="100%"
                             src={`/${this.state.product.img.filename}`}
                             // alt={this.state.product.img.alt}
+                            {...ScenarioAttributes("stage3", {
+                                alt: this.state.product.img.alt
+                            })}
                         />
                     </a>
                 </Link>

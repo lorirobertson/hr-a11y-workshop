@@ -5,6 +5,8 @@ import styled, { css } from 'styled-components';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 
+import {ScenarioTagWrapper} from '@components/Scenario';
+
 // import 'bootstrap/dist/css/bootstrap.css';
 
 const ContentWrapper = styled.div`
@@ -40,6 +42,11 @@ const Main = styled.main`
 	`}
 `;
 
+const MainAuth = styled.main`
+		height: 100%;
+		width: 100%;
+`;
+
 const Layout = ({ 
 	children,
 	title = '',
@@ -61,7 +68,9 @@ const Layout = ({
 					<link href="/global.css" rel="stylesheet" />
 				</Head>
 
-				{children}
+				<ScenarioTagWrapper as={MainAuth} minScenario="stage1">
+					{children}
+				</ScenarioTagWrapper>
 			</>
 		);
 	}

@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import securePage from '../../_utilities/securePage';
 import TableList from '../../components/Timesheets/TableList';
 import moment from 'moment';
+import { ScenarioAttributes } from '@components/Scenario';
 
 const Timesheets = () => {
 	const router = useRouter();
@@ -17,6 +18,9 @@ const Timesheets = () => {
 					onClick={() => 
 						router.push(`/timesheets/week/${moment().startOf('week').format('YYYY-MM-DD')}/new`)
 					}
+					{...ScenarioAttributes("complete", {
+						"aria-label": "Create a new timesheet"
+					})}
 				>
 					<i className="fas fa-plus"></i>
 				</button>

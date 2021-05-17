@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormGroup, Label, Input, } from 'reactstrap';
 import DatePicker from 'react-datepicker';
+import { ScenarioAttributes } from './Scenario';
 
 const FormControl = ({
   id,
@@ -28,11 +29,13 @@ const FormControl = ({
           <Input
             id={id}
             name={name}
-            aria-no_going_to_work={label}
             type={type}
             placeholder={label}
             defaultValue={value}
             onChange={onChange}
+            {...ScenarioAttributes("stage2", {
+              "aria-label": label,
+            })}
           >
             {
               options ?

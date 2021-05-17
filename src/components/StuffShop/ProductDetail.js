@@ -6,6 +6,7 @@ import Ratings from 'react-ratings-declarative';
 import images from '../../_utilities/placeholderImages';
 import { Alert, UncontrolledCarousel, Row, Col, Button } from 'reactstrap';
 import FormControl from '../FormControl';
+import { ScenarioTagWrapper } from '@components/Scenario';
 
 export default class ProductDetail extends React.Component {
     constructor(props) {
@@ -113,8 +114,8 @@ export default class ProductDetail extends React.Component {
     render() {
         const items = [
             {
-                src: `/${this.state.product.img.filename}`,
-                altText: this.state.product.img.alt,
+                src: `/${this.state.product.img?.filename}`,
+                altText: this.state.product.img?.alt,
                 caption: ' ',
                 header: 'Product Image 1'
             },
@@ -222,13 +223,17 @@ export default class ProductDetail extends React.Component {
                     <Row>
                         <Col md="6">
                             <div id="description" style={{whiteSpace: 'pre-line'}}>
-                                <h3>Description</h3>
+                                <ScenarioTagWrapper as="h2" original="h3" minScenario="stage3">
+                                    Description
+                                </ScenarioTagWrapper>
                                 <p>{this.state.product.description}</p>
                             </div>                    
                         </Col>
                         <Col>
                             <div id="specs">
-                                <h3>Specifications</h3>
+                                <ScenarioTagWrapper as="h2" original="h3" minScenario="stage3">
+                                    Specifications
+                                </ScenarioTagWrapper>
                                 <p><b>Weight:</b> 8.5 lbs</p>
                                 <p><b>Height:</b> 15 inches</p>
                                 <p><b>Width:</b> 10 inches</p>
@@ -237,7 +242,9 @@ export default class ProductDetail extends React.Component {
                             </div>
                             <br/>
                             <div id="shipping">
-                                <h3>Shipping Options</h3>
+                                <ScenarioTagWrapper as="h2" original="h3" minScenario="stage3">
+                                    Shipping Options
+                                </ScenarioTagWrapper>
                                 <p>USPS Shipping: $10.00</p>
                                 <p>UPS Ground Shipping: 2 - 4 days, $18.00</p>
                                 <p>Pony Express: 5 - 10 days, $40.00</p>

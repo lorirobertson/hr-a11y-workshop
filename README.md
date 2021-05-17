@@ -31,3 +31,21 @@ This is an application for demoing the full range of the axe DevTools product.
 ### Automated Tests
 * In a new command prompt window, start the automated tests by running `npm test` or `yarn test`
 * You can also navigate to the [jenkins install](http://localhost:8080), navigate to the hra11y project and generate a new build.
+
+### Scenarios
+The front-end is loaded conditions that cause accessibility defects, depending on the day of the week. The goal of this feature is to allow the app to simulate a remediation process over the course of a week, which our tools will be able to discover and report. This is intended for production deployment, however if you find the need to force a certain scenario you can do so by setting the environment variable named `FORCE_SCENARIO` to the scenario of your choosing.
+
+__Options:__
+| Scenario      | Description   |
+| ------------- | ------------- |
+| baseline  | [DEFAULT] 0% accessibility. You will find many defects across the site. |
+| stage1 | All automated defects in the layout are fixed.  |
+| stage2 | All automated defects in the timesheets section are fixed. |
+| stage3 | All automated defects in the stuff shop section are fixed. |
+| complete | All automated defects have been fixed. |
+  
+<br/>  
+  
+To force a scenario on your local environment, add a line to the `.env` file that looks like this:
+
+`FORCE_SCENARIO=stage3`

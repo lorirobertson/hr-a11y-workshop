@@ -4,6 +4,7 @@ import { Row, Col, Button } from 'reactstrap';
 import _ from 'lodash';
 import cart from './cart';
 import FormControl from '../FormControl';
+import { ScenarioTagWrapper } from '@components/Scenario';
 
 export default class ShoppingCart extends React.Component {
     constructor(props) {
@@ -62,9 +63,9 @@ export default class ShoppingCart extends React.Component {
         return (
             <div id="shopping-cart">
                 <div id="cart-header" className="clearfix">
-                    <p className="h3 float-left">
+                    <ScenarioTagWrapper as="h1" original="h2" minScenario="stage3">
                         { this.props.checkout ? 'Item Details' : 'Shopping Cart' }
-                    </p>
+                    </ScenarioTagWrapper>
                 </div>
                 <div id="cart-total">
                     <p className="h1">

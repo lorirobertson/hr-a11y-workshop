@@ -7,4 +7,7 @@ module.exports = {
 	future: {
 		webpack5: true,
 	},
+	env: {
+		FORCE_SCENARIO: process.env.FORCE_SCENARIO,
+	}
 }

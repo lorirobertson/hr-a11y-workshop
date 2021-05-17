@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
 import Link from 'next/link';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { logout } from './Auth/auth-utils';
-import UserBadge from './Common/UserBadge';
-import { getUserInfo } from './Auth/auth-utils';
+import { ScenarioAttributes } from '@components/Scenario';
 
 const TopbarContainer = styled.nav`
     position: fixed;
@@ -33,22 +31,17 @@ const MenuItem = styled.button`
 `;
 
 const Topbar = () => {
-    // const [user, setUser] = useState(getUserInfo());
-
     return (
         <TopbarContainer id="topbar">
             <MenuRight>
-
-                {/* <UserBadge
-                    src={user.img}
-                    alt="A User!"
-                    name="Joshua McClure"
-                /> */}
-                
                 <Link href="/stuff-shop/cart">
                     <MenuItem
                         id="btn-shopping-cart"
-                        className="btn btn-link mr-2">
+                        className="btn btn-link mr-2"
+                        {...ScenarioAttributes("stage1", {
+                            "aria-label": "Shopping Cart",
+                        })}
+                    >
                         <i className="fas fa-shopping-cart"></i>
                     </MenuItem>
                 </Link>
@@ -56,7 +49,11 @@ const Topbar = () => {
                 <MenuItem
                     onClick={logout}
                     id="btn-sign-out"
-                    className="btn btn-link">
+                    className="btn btn-link"
+                    {...ScenarioAttributes("stage1", {
+                        "aria-label": "Sign Out",
+                    })}
+                >
                     <i className="fas fa-sign-out-alt"></i>
                 </MenuItem>
             </MenuRight>

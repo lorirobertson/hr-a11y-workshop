@@ -60,7 +60,7 @@ class BlogList extends React.Component {
   }
 
   sort(data, direction='desc') {
-    return data.sort((a,b) => {
+    return data?.sort((a,b) => {
       if ( direction === 'desc' ) {
         return new Date(b.created) - new Date(a.created);
       } else {

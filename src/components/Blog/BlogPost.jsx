@@ -3,6 +3,7 @@ import Link from 'next/link';
 import request from '../../_utilities/request';
 import moment from 'moment';
 import styled from 'styled-components';
+import { ScenarioAttributes } from '@components/Scenario';
 
 const PostContainer = styled.div`
     background: #fff;
@@ -118,7 +119,11 @@ class BlogPost extends React.Component {
   render() {
     return (
         <PostContainer id={this.state.id}>
-            <PostImg src={this.state.img.src} alt={this.state.img.alt} className="post-image" />
+            <PostImg src={this.state.img.src} className="post-image"
+                {...ScenarioAttributes("complete", {
+                    alt: this.state.img.alt
+                })}
+            />
             <PostContent>
                 <Link href={`/news/post/${this.state.id}`}>
                     <PostTitle>{this.state.title}</PostTitle>

@@ -1,3 +1,4 @@
+import { ScenarioAttributes, ScenarioDisplay } from '@components/Scenario';
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
@@ -31,7 +32,9 @@ export default class MyDocument extends Document {
 
 	render () {
 		return (
-			<Html lang="en">
+			<Html {...ScenarioAttributes("stage1", {
+				lang:"en",
+			})}>
 				<Head/>
 				<body>
 					<Main />

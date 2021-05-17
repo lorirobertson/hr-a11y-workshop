@@ -3,6 +3,8 @@ import Router from 'next/router';
 import styled, { css } from 'styled-components';
 import { authenticateUser, getUserInfo } from './auth-utils';
 
+import {ScenarioDisplay, ScenarioTagWrapper} from '@components/Scenario';
+
 const Container = styled.div`
     display: flex;
     height: 100%;
@@ -56,7 +58,9 @@ const Login = () => {
         <Container>
             <Form onSubmit={handleSubmit}>
 
-                <h4>Please Sign In</h4>
+                <ScenarioTagWrapper as="h1" original="h4" minScenario="stage1">
+                    Please Sign In
+                </ScenarioTagWrapper>
 
                 <div
                     className="alert alert-danger my-3"
@@ -66,6 +70,10 @@ const Login = () => {
                 </div>
 
                 <div id="form-group-username" className="my-3">
+                    <ScenarioDisplay minScenario="stage1">
+                        <label htmlFor="username">Email</label>
+                    </ScenarioDisplay>
+
                     <input
                         ref={inpUsername}
                         name="username"
@@ -77,6 +85,10 @@ const Login = () => {
                 </div>
 
                 <div id="form-group-password" className="my-3">
+                    <ScenarioDisplay minScenario="stage1">
+                        <label htmlFor="password">Password</label>
+                    </ScenarioDisplay>
+
                     <input
                         ref={inpPassword}
                         name="password"
