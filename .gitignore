@@ -60,7 +60,6 @@ typings/
 # next.js build output
 .next
 
-public/*
 aget/testOutput/
 a11y-reports/
 a11y-results/
