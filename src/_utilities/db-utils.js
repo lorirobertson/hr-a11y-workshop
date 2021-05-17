@@ -1,17 +1,18 @@
-var db = global.db;
+// var db = global.db;
 import _ from 'lodash';
 
 const fetchAll = (collection) => {
     return async (req, res, next) => {
+        
         const filters = req?.headers?.helpers || {};
-        const data = await db[collection].find(filters);
+        const data = await req?.db[collection].find(filters);
         res.json(data);
     }
 }
 
 function fetchOne(collection) {
     return async (req, res, next ) => {
-        const data = await db[collection].findOne({ _id: req.query.id });
+        const data = await req?.db[collection].findOne({ _id: req.query.id });
         res.json(data);
     }
 }
@@ -19,28 +20,28 @@ function fetchOne(collection) {
 function count(collection) {
     return async (req, res, next ) => {
         const filters = req?.body?.filters || {};
-        const data = await db[collection].find(filters);
+        const data = await req?.db[collection].find(filters);
         res.json({ count: data.length });
     }
 }
 
 function create(collection) {
     return async (req, res, next ) => {
-        const data = await db[collection].save(JSON.parse(req.body));
+        const data = await req?.db[collection].save(JSON.parse(req.body));
         res.send(data);
     }
 }
 
 function updateOne(collection) {
     return async (req, res, next ) => {
-        const data = await db[collection].update({ _id: req.query.id }, JSON.parse(req.body));
+        const data = await req?.db[collection].update({ _id: req.query.id }, JSON.parse(req.body));
         res.send(data);
     }
 }
 
 function removeOne(collection) {
     return async (req, res, next ) => {
-        const data = await db[collection].remove({ _id: req.query.id });
+        const data = await req?.db[collection].remove({ _id: req.query.id });
         res.send(data);
     }
 }
@@ -55,7 +56,7 @@ const paginate = (data, start, limit) => {
 }
 
 async function fetchAllGrouped(req, res, next ) {
-    const data = await db['timesheets'].find();
+    const data = await req?.db['timesheets'].find();
     res.json(groupByWeek(data));
 }
 
@@ -119,7 +120,7 @@ const calcHoursByWeek = (data=[]) => {
 };
 
 async function fetchAllByWeek(req, res, next ) {
-    const data = await db['timesheets'].find({
+    const data = await req?.db['timesheets'].find({
         date: req.query.weekOf
     });
 

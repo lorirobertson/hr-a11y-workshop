@@ -24,7 +24,7 @@ export default class Main extends React.Component {
         fetch(`/api/v1/products`)
             .then(resp => resp.json())
             .then(data => {
-                this.setState({products: data.slice(2,4)});
+                this.setState({products: data?.slice(2,4)});
             })
     }
 

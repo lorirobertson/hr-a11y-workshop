@@ -3,8 +3,8 @@ const diskdb = require('diskdb');
 
 export default async (req, res, next) => {
     try {
-        if ( !global.db ) {
-            global.db = diskdb.connect(`${appRoot}/data`, [
+        if ( !req?.db ) {
+            req.db = diskdb.connect(`${appRoot}/data`, [
                 'users',
                 'products',
                 'posts',

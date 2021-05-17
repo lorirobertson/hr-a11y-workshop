@@ -3,8 +3,6 @@ import bcrypt from 'bcrypt';
 import _ from 'lodash';
 import jwt from 'jsonwebtoken';
 
-var db = global.db;
-
 const apiRoute = createHandler();
 
 const createToken = async (secret, payload) => {
@@ -17,7 +15,7 @@ apiRoute.post(async (req, res) => {
     const identity = req.body.identifier;
     const password = req.body.password;
 
-    const user = await global.db['users'].findOne({username: identity});
+    const user = await req?.db['users'].findOne({username: identity});
 
     console.log(user);
 
