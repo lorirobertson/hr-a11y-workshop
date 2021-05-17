@@ -3,7 +3,6 @@ import _ from 'lodash';
 
 const fetchAll = (collection) => {
     return async (req, res, next) => {
-        
         const filters = req?.headers?.helpers || {};
         const data = await req?.db[collection].find(filters);
         res.json(data);
