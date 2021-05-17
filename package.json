@@ -7,7 +7,7 @@
     "dev:orig": "NODE_ENV=development node src/server/server.js",
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "test": "rm -rf ./a11y-results && jest",
     "conc": "concurrently \"npm run dev\" \"sleep 10 && npm run axe-cli\"",
     "e2e": "",
