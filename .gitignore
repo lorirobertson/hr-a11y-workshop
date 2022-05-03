@@ -68,3 +68,8 @@ a11y-results/
 
 cli/testOutput/*
 Jenkins/volume_backups/*.tar
+
+#cypress output
+cypress/a11y-results/
+cypress/screenshots/
+cypress/videos/
