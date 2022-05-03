@@ -1,6 +1,6 @@
 {
   "name": "hr-a11y",
-  "version": "2.0.1",
+  "version": "3.0.1",
   "private": true,
   "main": "src/server/server.js",
   "scripts": {
@@ -8,72 +8,56 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start -p $PORT",
-    "test": "rm -rf ./a11y-results && jest",
-    "conc": "concurrently \"npm run dev\" \"sleep 10 && npm run axe-cli\"",
-    "e2e": "",
-    "axe-cli": "rm -rf cli/testOutput && axe spec ./cli/specs/main.json ./cli/testOutput --format html+junit --headless"
+    "axe-cli": "rm -rf cli/testOutput && axe spec ./cli/specs/main.json ./cli/testOutput --format html+junit --headless",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.0",
     "app-root-path": "^3.0.0",
     "bcrypt": "^3.0.7",
-    "body-parser": "^1.19.0",
-    "compression": "^1.7.4",
-    "concurrently": "^6.0.1",
-    "cookie-parser": "^1.4.4",
+    "cypress": "^9.6.0",
     "diskdb": "^0.1.17",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "helmet": "^3.21.2",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
-    "md5": "^2.2.1",
     "moment": "^2.24.0",
-    "morgan": "^1.9.1",
     "next": "^10.1.3",
-    "next-auth": "^3.14.6",
     "next-connect": "^0.10.1",
-    "postcss": "^8.2.13",
-    "prop-types": "^15.7.2",
-    "puppeteer": "^8.0.0",
     "react": "^17.0.2",
     "react-cookie-consent": "^6.2.3",
     "react-datepicker": "^2.11.0",
-    "react-dom": "^17.0.2",
-    "react-is": "^17.0.2",
+    "react-dom": "^18.1.0",
     "react-ratings-declarative": "^3.4.1",
     "reactstrap": "^8.4.1",
-    "styled-components": "^5.0.0",
-    "swr": "^0.5.5",
-    "uuid": "^3.4.0",
-    "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^4.4.2"
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
     "@axe-devtools/browser": "^4.1.0",
     "@axe-devtools/cli": "^4.1.0",
+    "@axe-devtools/cypress": "^4.4.1",
     "@axe-devtools/reporter": "^4.1.0",
-    "@babel/register": "^7.8.3",
-    "@testing-library/dom": "^7.29.4",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
     "axe-core": "^3.4.1",
     "babel-polyfill": "^6.26.0",
     "jest": "^25.1.0",
-    "jest-junit": "^12.0.0",
-    "webpack": "^5.24.4"
-  },
-  "author": {
-    "name": "Joshua McClure",
-    "email": "joshua.mcclure@deque.com",
-    "url": "http://www.deque.com"
+    "jest-junit": "^12.0.0"
   },
   "maintainers": [
     {
-      "name": "Joshua McClure",
-      "email": "joshua.mcclure@deque.com",
+      "name": "Taylor Richards",
+      "email": "taylor.richards@deque.com",
+      "url": "http://www.deque.com"
+    },
+    {
+      "name": "Travis Marasca",
+      "email": "travis.marasca@deque.com",
+      "url": "http://www.deque.com"
+    },
+    {
+      "name": "David Moore",
+      "email": "david.moore@deque.com",
       "url": "http://www.deque.com"
     }
   ]

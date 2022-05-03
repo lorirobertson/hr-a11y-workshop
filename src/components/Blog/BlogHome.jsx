@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import BlogList from './BlogList';
 import BlogPost from './BlogPost';
 import Router from 'next/router';
@@ -39,14 +40,14 @@ export default class BlogHome extends React.Component {
             filter: this.state.filterValue
         });
     }
-    
+
     changeCategory(e) {
         this.setState({ category: e });
     }
 
     render() {
         const categories = ['Events', 'Product', 'Synergy', 'Innovation', 'Management', 'Sales', 'Support', 'Services', 'Marketing', 'Administrative'];
-        
+
         return (
             <div id="blog-container">
                 <h1>Blog Posts & News</h1>

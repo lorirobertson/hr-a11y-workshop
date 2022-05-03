@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import { Row, Col, Card, CardBody, CardTitle, CardHeader, Button } from 'reactstrap';
 import { BlogPost as LatestBlogPost } from '@components/Blog';
 import { ProductCard } from '@components/StuffShop';
@@ -20,7 +21,7 @@ export default class Main extends React.Component {
         // request.get(`/products`).then(data2=>{
         //     console.log('data2',data2);
         // });
-        
+
         fetch(`/api/v1/products`)
             .then(resp => resp.json())
             .then(data => {
@@ -38,7 +39,7 @@ export default class Main extends React.Component {
                             <WeeklyTotal />
                         </CardBody>
                     </Card>
-                    
+
                     <Card outline color="primary" className="mb-4">
                         <CardHeader>
                             <h5>Corporate Message</h5>
@@ -49,7 +50,7 @@ export default class Main extends React.Component {
                     </Card>
 
                     <Row className="mb-4">
-                        { 
+                        {
                             this.state.products
                                 .map((product, index) => {
                                     return <Col key={index}>

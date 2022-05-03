@@ -1,4 +1,5 @@
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 
 const utils = {
     getCart: () => {
@@ -90,7 +91,7 @@ const cart = {
                     .filter((i)=>{
                         return !(i.id === item.id && i.color === item.color);
                     });
-                
+
                 localStorage.setItem('cart', JSON.stringify(cart));
 
                 resolve(cart);

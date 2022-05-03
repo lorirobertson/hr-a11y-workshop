@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Row, Col, Button } from 'reactstrap';
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import cart from './cart';
 import FormControl from '../FormControl';
 import { ScenarioTagWrapper } from '@components/Scenario';
@@ -85,7 +86,7 @@ export default class ShoppingCart extends React.Component {
                                     block
                                     hidden={this.props.checkout}
                                     disabled={ !this.state.cart.length }
-                                >Checkout</Button> 
+                                >Checkout</Button>
                             </Link>
                     }
                 </div>
@@ -105,8 +106,8 @@ export default class ShoppingCart extends React.Component {
                                             </p>
                                         </Col>
                                         <Col>
-                                            { 
-                                                ( this.props.checkout ) ? 
+                                            {
+                                                ( this.props.checkout ) ?
                                                     <p className="h5">
                                                         Qty: {item.quantity}
                                                     </p>
@@ -118,7 +119,7 @@ export default class ShoppingCart extends React.Component {
                                                         label="Quantity"
                                                         value={item.quantity}
                                                         onChange={(e)=>this.updateQuantity(item, e.target.value)}
-                                                        
+
                                                     />
                                             }
                                         </Col>
@@ -132,7 +133,7 @@ export default class ShoppingCart extends React.Component {
                                                 color="link"
                                                 block
                                                 onClick={()=>this.removeItem(item)}
-                                            >Remove</Button> 
+                                            >Remove</Button>
                                     }
                                     <hr/>
                                 </div>

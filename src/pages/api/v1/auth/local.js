@@ -1,6 +1,7 @@
 import createHandler from '@middleware/createHandler';
 import bcrypt from 'bcrypt';
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import jwt from 'jsonwebtoken';
 
 const apiRoute = createHandler();
@@ -26,7 +27,7 @@ apiRoute.post(async (req, res) => {
 
     try {
         const passwordMatch = await bcrypt.compare(password, user?.password);
-        
+
         if (!passwordMatch) {
             res.status(401).json({ status: 401, data: 'Authentication failed.' });
             return;
@@ -38,7 +39,7 @@ apiRoute.post(async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).end(err.toString());
-    }; 
+    };
 })
 
 export default apiRoute;

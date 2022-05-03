@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import { Table } from 'reactstrap';
 
 export default class TableRender extends React.Component {
@@ -29,7 +30,7 @@ export default class TableRender extends React.Component {
                 </tbody>
                 <tfoot>
                     {
-                        ( this.props.tfoot ) ? 
+                        ( this.props.tfoot ) ?
                             <tr>{this.props.tfoot.map((item,index)=> <td key={index}>{item}</td>)}</tr>
                         : null
                     }

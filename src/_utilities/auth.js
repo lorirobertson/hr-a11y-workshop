@@ -1,4 +1,5 @@
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 
 const TOKEN_KEY = 'access-token';
 const USER_INFO = 'userInfo';

@@ -1,5 +1,6 @@
 // var db = global.db;
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 
 const fetchAll = (collection) => {
     return async (req, res, next) => {

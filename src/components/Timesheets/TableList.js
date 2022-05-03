@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import TableRender from '../TableRender';
 import request from '../../_utilities/request';
 import _ from 'lodash';
+// TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 
 function listGrouped(data) {
     return {
@@ -74,7 +75,7 @@ const Actions = ({ date }) => {
             >
                 <a className="btn btn-sm btn-info">View Entries</a>
             </Link>
-            
+
             {` `}
 
             <Link
@@ -96,7 +97,7 @@ const DetailActions = ({ id, deleteTimesheet }) => {
             >
                 <a className="btn btn-sm btn-primary">Edit</a>
             </Link>
-            
+
             {` `}
 
             <button
@@ -114,7 +115,7 @@ const TableList = ({
     date=null,
 }) => {
     const [data, setData] = useState([]);
-    
+
     useEffect(() => {
         fetchData()
     }, []);
