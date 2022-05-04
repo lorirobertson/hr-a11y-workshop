@@ -1,5 +1,5 @@
 
-# HR A11y
+# HR A11y Workshop Repo
 This is an application for demoing the full range of the axe DevTools product.
 
 ## Prerequisites
@@ -16,6 +16,6 @@ This is an application for demoing the full range of the axe DevTools product.
 * In a new command prompt window, start the hr-a11y app by running `npm run dev` or `yarn dev`
 * Open a webbrowser and navigate to [http://localhost:3001](http://localhost:3001)
 
+**TODO:** Review this section
 ### Automated Tests
 * In a new command prompt window, start the automated tests by running `npm test` or `yarn test`
-* You can also navigate to the [jenkins install](http://localhost:8080), navigate to the hra11y project and generate a new build.
