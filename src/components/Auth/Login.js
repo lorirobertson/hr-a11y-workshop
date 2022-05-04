@@ -3,7 +3,7 @@ import Router from 'next/router';
 import styled, { css } from 'styled-components';
 import { authenticateUser, getUserInfo } from './auth-utils';
 
-import {ScenarioDisplay, ScenarioTagWrapper} from '@components/Scenario';
+import {ScenarioDisplay, ScenarioTagWrapper} from '../Scenario';
 
 const Container = styled.div`
     display: flex;
@@ -51,7 +51,7 @@ const Login = () => {
             } else {
                 setLoginError(true);
             }
-        }    
+        }
     }
 
     return (

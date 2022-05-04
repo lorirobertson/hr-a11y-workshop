@@ -4,6 +4,7 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.parcel-cache
 
 # Runtime data
 pids
@@ -57,17 +58,11 @@ typings/
 # dotenv environment variables file
 .env
 
-# next.js build output
-.next
-
 aget/testOutput/
 a11y-reports/
 a11y-results/
 .DS_store
-# .npmrc
-
-cli/testOutput/*
-Jenkins/volume_backups/*.tar
+.npmrc
 
 #cypress output
 cypress/a11y-results/

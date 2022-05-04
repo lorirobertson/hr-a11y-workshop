@@ -1,5 +1,5 @@
-import createHandler from '@middleware/createHandler';
-import { fetchOne, removeOne, updateOne } from '@utilities/db-utils';
+import createHandler from '../../../../middleware/createHandler';
+import { fetchOne, removeOne, updateOne } from '../../../../_utilities/db-utils';
 
 const apiRoute = createHandler();
 

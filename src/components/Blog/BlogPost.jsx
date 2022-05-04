@@ -3,7 +3,7 @@ import Link from 'next/link';
 import request from '../../_utilities/request';
 import moment from 'moment';
 import styled from 'styled-components';
-import { ScenarioAttributes } from '@components/Scenario';
+import { ScenarioAttributes } from '../Scenario';
 
 const PostContainer = styled.div`
     background: #fff;
@@ -71,7 +71,7 @@ class BlogPost extends React.Component {
     } else {
         this.setState({...this.props});
     }
-      
+
   }
 
   fetchPost(id) {
@@ -86,8 +86,8 @@ class BlogPost extends React.Component {
   fetchLatestPost() {
     fetch(`/api/v1/posts`)
         .then(resp => resp.json())
-        .then(data => 
-            this.setState({...data[data.length - 1]})    
+        .then(data =>
+            this.setState({...data[data.length - 1]})
         )
   }
 
@@ -128,7 +128,7 @@ class BlogPost extends React.Component {
                 <Link href={`/news/post/${this.state.id}`}>
                     <PostTitle>{this.state.title}</PostTitle>
                 </Link>
-                
+
                 {
                     ( this.props.teaser ) ? this.truncate(this.state.body) : <PostBody>{this.state.body}</PostBody>
                 }
@@ -137,7 +137,7 @@ class BlogPost extends React.Component {
                     <Link href={`/news/category/${this.state.category}`}>
                         <a className="float-right">{this.state.category}</a>
                     </Link>
-                    
+
                     <PostDate>
                        Posted on {moment(this.state.created).format('MMMM Do, YYYY')}
                     </PostDate>

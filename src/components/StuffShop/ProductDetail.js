@@ -6,7 +6,7 @@ import Ratings from 'react-ratings-declarative';
 import images from '../../_utilities/placeholderImages';
 import { Alert, UncontrolledCarousel, Row, Col, Button } from 'reactstrap';
 import FormControl from '../FormControl';
-import { ScenarioTagWrapper } from '@components/Scenario';
+import { ScenarioTagWrapper } from '../Scenario';
 
 export default class ProductDetail extends React.Component {
     constructor(props) {
@@ -47,7 +47,7 @@ export default class ProductDetail extends React.Component {
 
     onDismiss() {
         this.setState({ alertVisible: false });
-    }    
+    }
 
     truncate(str, max=30) {
         let output = '';
@@ -57,9 +57,9 @@ export default class ProductDetail extends React.Component {
             for (let i=0; i <= max; i++ ) {
                 output += `${arr[i]} `;
             }
-    
+
             output = output.trim();
-    
+
             if ( output.substr(output.length - 1) !== '.' ) {
                 output += '...';
             }
@@ -70,7 +70,7 @@ export default class ProductDetail extends React.Component {
 
     scrollToElement(id) {
         var el = document.getElementById(id);
-        el.scrollIntoView();        
+        el.scrollIntoView();
     }
 
     renderColorOptionsFromString(str) {
@@ -183,7 +183,7 @@ export default class ProductDetail extends React.Component {
                         <Alert color="success" isOpen={this.state.alertVisible} toggle={this.onDismiss} className="mt-3">
                             Added to your cart! <Link href="/stuff-shop/cart"><a>Click here to view your cart.</a></Link>
                         </Alert>
-                        
+
                         <hr className="mt-4 mb-4"/>
 
                         <p className="h5">Overall Customer Rating</p>
@@ -227,7 +227,7 @@ export default class ProductDetail extends React.Component {
                                     Description
                                 </ScenarioTagWrapper>
                                 <p>{this.state.product.description}</p>
-                            </div>                    
+                            </div>
                         </Col>
                         <Col>
                             <div id="specs">

@@ -2,11 +2,11 @@ import React from 'react';
 import _ from 'lodash';
 // TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import { Row, Col, Card, CardBody, CardTitle, CardHeader, Button } from 'reactstrap';
-import { BlogPost as LatestBlogPost } from '@components/Blog';
-import { ProductCard } from '@components/StuffShop';
+import { BlogPost as LatestBlogPost } from '../Blog';
+import { ProductCard } from '../StuffShop';
 import PTOModal from './PTOModal';
-import WeeklyTotal from '@components/Timesheets/WeeklyTotal';
-import request from '@utilities/request';
+import WeeklyTotal from '../Timesheets/WeeklyTotal';
+import request from '../../_utilities/request';
 
 export default class Main extends React.Component {
     constructor(props) {

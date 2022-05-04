@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 import request from '../../_utilities/request';
-import { ScenarioAttributes } from '@components/Scenario';
+import { ScenarioAttributes } from '../Scenario';
 
 export default class ProductCard extends React.Component {
     constructor(props) {
@@ -48,9 +48,9 @@ export default class ProductCard extends React.Component {
             for (let i=0; i <= max; i++ ) {
                 output += `${arr[i]} `;
             }
-    
+
             output = output.trim();
-    
+
             if ( output.substr(output.length - 1) !== '.' ) {
                 output += '...';
             }

@@ -1,7 +1,7 @@
-import Layout from '@components/Layout';
+import Layout from '../Layout';
 import CookieConsent from 'react-cookie-consent';
-import securePage from '@utilities/securePage';
-import Main from '@components/Dashboard/main';
+import securePage from '../_utilities/securePage';
+import Main from '../components/Dashboard/main';
 
 const Index = () => {
 	return (

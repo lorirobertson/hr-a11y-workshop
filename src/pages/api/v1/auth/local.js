@@ -1,4 +1,4 @@
-import createHandler from '@middleware/createHandler';
+import createHandler from '../../../../middleware/createHandler';
 import bcrypt from 'bcrypt';
 import _ from 'lodash';
 // TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}

@@ -3,7 +3,7 @@ import _ from 'lodash';
 // TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import FormControl from '../FormControl';
-import { ScenarioAttributes } from '@components/Scenario';
+import { ScenarioAttributes } from '../Scenario';
 
 const PTOModal = ({
 

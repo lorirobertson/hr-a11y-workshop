@@ -4,6 +4,7 @@ This is an application for demoing the full range of the axe DevTools product.
 
 ## Prerequisites
 * NodeJS v10 (or greater)
+* Access to Deque Agora packages (proper .npmrc file setup)
 
 ## Installation
 * First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y-workshop.git`
@@ -11,11 +12,9 @@ This is an application for demoing the full range of the axe DevTools product.
 
 ## Run the full environment
 
-**TODO:** Review this section
 ### Web Application (server + front-end)
 * In a new command prompt window, start the hr-a11y app by running `npm run dev` or `yarn dev`
-* Open a webbrowser and navigate to [http://localhost:3001](http://localhost:3001)
+* Open a webbrowser and navigate to [http://localhost:1234](http://localhost:1234)
 
-**TODO:** Review this section
 ### Automated Tests
 * In a new command prompt window, start the automated tests by running `npm test` or `yarn test`

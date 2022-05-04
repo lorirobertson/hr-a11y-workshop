@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 
-import {ScenarioTagWrapper} from '@components/Scenario';
+import {ScenarioTagWrapper} from '../Scenario';
 
 // import 'bootstrap/dist/css/bootstrap.css';
 
@@ -47,7 +47,7 @@ const MainAuth = styled.main`
 		width: 100%;
 `;
 
-const Layout = ({ 
+const Layout = ({
 	children,
 	title = '',
     header=true,

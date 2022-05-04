@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import scenario from '@utilities/scenario';
+import scenario from '../../_utilities/scenario';
 
 const scenarioMap = {
     baseline: 0,
@@ -27,7 +27,7 @@ const ScenarioTagWrapper = ({
     children,
 }) => {
     const Tag = scenarioMap[scenario] >= scenarioMap[minScenario] ? as : original;
-    
+
     return (
         <Tag>
             {children}

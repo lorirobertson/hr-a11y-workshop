@@ -3,7 +3,7 @@ import { CardColumns } from 'reactstrap';
 import Link from 'next/link';
 import request from '../../_utilities/request';
 import ProductCard from './ProductCard';
-import { ScenarioTagWrapper } from '@components/Scenario';
+import { ScenarioTagWrapper } from '../Scenario';
 
 export default class ProductList extends React.Component {
     constructor(props) {
@@ -17,10 +17,10 @@ export default class ProductList extends React.Component {
     componentDidMount() {
         fetch(`/api/v1/products`)
             .then(resp => resp.json())
-            .then(data => 
+            .then(data =>
                 this.setState({
                     products: data
-                })    
+                })
             )
     }
 

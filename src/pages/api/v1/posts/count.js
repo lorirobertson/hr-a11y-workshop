@@ -1,5 +1,5 @@
-import createHandler from '@middleware/createHandler';
-import { count } from '@utilities/db-utils';
+import createHandler from '../../../../middleware/createHandler';
+import { count } from '../../../../_utilities/db-utils';
 
 const apiRoute = createHandler();
 

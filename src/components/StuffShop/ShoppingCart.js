@@ -5,7 +5,7 @@ import _ from 'lodash';
 // TODO: REMOVE LODASH -> GRAB INDIVIDUAL FUNCTIONALITY {}
 import cart from './cart';
 import FormControl from '../FormControl';
-import { ScenarioTagWrapper } from '@components/Scenario';
+import { ScenarioTagWrapper } from '../Scenario';
 
 export default class ShoppingCart extends React.Component {
     constructor(props) {

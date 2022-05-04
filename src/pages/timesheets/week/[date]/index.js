@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Layout from '../../../../components/Layout';
 import securePage from '../../../../_utilities/securePage';
 import TableList from '../../../../components/Timesheets/TableList';
-import { ScenarioAttributes } from '@components/Scenario';
+import { ScenarioAttributes } from '../Scenario';
 
 const TimesheetsPerWeek = () => {
 	const router = useRouter();
@@ -25,7 +25,7 @@ const TimesheetsPerWeek = () => {
 
 				<button
 					className="btn btn-success btn-sm float-right"
-					onClick={() => 
+					onClick={() =>
 						router.push(`/timesheets/week/${date}/new`)
 					}
 					{...ScenarioAttributes("stage2", {
