@@ -4,26 +4,14 @@ This is an application for demoing the full range of the axe DevTools product.
 
 ## Prerequisites
 * NodeJS v10 (or greater)
-* Docker v20.10 (or greater)
-* The jenkins docker script was desinged for a MacOS environment. If you are using WindowsOS, you will need to run the docker commands manually. Check the `__setup.sh` script file.
 
 ## Installation
-* First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y.git`
+* First off, clone this repo `git clone git@github.com:dequelabs/hr-a11y-workshop.git`
 * Open a command prompt, navigate to the project folder, and run `npm install` or `yarn`
 
 ## Run the full environment
 
-### Jenkins
-* [Download the volume data backup from our SFTP server](https://sftp.dequecloud.com/?u=xaeyn9dtTX&p=4WgeMh6BgQ&path=/hra11y-jenkins.tar)
-* Move the downloaded file to the `{PROJECT_ROOT}/Jenkins/volume_backups`
-* Run the `./__setup.sh` script
-    - if you are getting a permissions error here, run `sudo chmod +x __setup.sh` and try to run again.
-* Start the Jenkins instance by using `docker-compose up --build`
-* Navigate to [http://localhost:8080](http://localhost:8080)
-* The user credentials are:
-    - user: admin
-    - password: password
-
+**TODO:** Review this section
 ### Web Application (server + front-end)
 * In a new command prompt window, start the hr-a11y app by running `npm run dev` or `yarn dev`
 * Open a webbrowser and navigate to [http://localhost:3001](http://localhost:3001)
@@ -31,21 +19,3 @@ This is an application for demoing the full range of the axe DevTools product.
 ### Automated Tests
 * In a new command prompt window, start the automated tests by running `npm test` or `yarn test`
 * You can also navigate to the [jenkins install](http://localhost:8080), navigate to the hra11y project and generate a new build.
-
-### Scenarios
-The front-end is loaded conditions that cause accessibility defects, depending on the day of the week. The goal of this feature is to allow the app to simulate a remediation process over the course of a week, which our tools will be able to discover and report. This is intended for production deployment, however if you find the need to force a certain scenario you can do so by setting the environment variable named `FORCE_SCENARIO` to the scenario of your choosing.
-
-__Options:__
-| Scenario      | Description   |
-| ------------- | ------------- |
-| baseline  | [DEFAULT] 0% accessibility. You will find many defects across the site. |
-| stage1 | All automated defects in the layout are fixed.  |
-| stage2 | All automated defects in the timesheets section are fixed. |
-| stage3 | All automated defects in the stuff shop section are fixed. |
-| complete | All automated defects have been fixed. |
-  
-<br/>  
-  
-To force a scenario on your local environment, add a line to the `.env` file that looks like this:
-
-`FORCE_SCENARIO=stage3`
