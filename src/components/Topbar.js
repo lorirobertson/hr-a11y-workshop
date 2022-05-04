@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { logout } from './Auth/auth-utils';
-import { ScenarioAttributes } from '../Scenario';
+import { ScenarioAttributes } from './Scenario';
 
 const TopbarContainer = styled.nav`
     position: fixed;
