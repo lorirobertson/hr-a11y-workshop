@@ -1,2 +1,0 @@
-nodejs:1.3.10
-artifactory:3.10.4

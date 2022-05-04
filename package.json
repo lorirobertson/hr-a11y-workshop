@@ -1,14 +1,9 @@
 {
-  "name": "hr-a11y",
+  "name": "hr-a11y-workshop",
   "version": "3.0.1",
   "private": true,
   "main": "src/server/server.js",
   "scripts": {
-    "dev:orig": "NODE_ENV=development node src/server/server.js",
-    "dev": "next dev -p 3001",
-    "build": "next build",
-    "start": "next start -p $PORT",
-    "axe-cli": "rm -rf cli/testOutput && axe spec ./cli/specs/main.json ./cli/testOutput --format html+junit --headless",
     "cy:run": "cypress run"
   },
   "dependencies": {
@@ -21,8 +16,6 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "next": "^10.1.3",
-    "next-connect": "^0.10.1",
     "react": "^17.0.2",
     "react-cookie-consent": "^6.2.3",
     "react-datepicker": "^2.11.0",
@@ -33,26 +26,14 @@
   },
   "devDependencies": {
     "@axe-devtools/browser": "^4.1.0",
-    "@axe-devtools/cli": "^4.1.0",
     "@axe-devtools/cypress": "^4.4.1",
     "@axe-devtools/reporter": "^4.1.0",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.6.3",
-    "axe-core": "^3.4.1",
-    "babel-polyfill": "^6.26.0",
-    "jest": "^25.1.0",
-    "jest-junit": "^12.0.0"
+    "axe-core": "^3.4.1"
   },
   "maintainers": [
     {
       "name": "Taylor Richards",
       "email": "taylor.richards@deque.com",
-      "url": "http://www.deque.com"
-    },
-    {
-      "name": "Travis Marasca",
-      "email": "travis.marasca@deque.com",
       "url": "http://www.deque.com"
     },
     {
