@@ -1,60 +1,52 @@
 import styles from "../styles/components/MainContent.module.scss";
-import { Row, Col, Button } from "reactstrap";
-
-import WeeklyTotal from "./WeeklyTotal";
+import { Row, Col, Button, Card, CardBody, CardHeader } from "reactstrap";
+import Topbar from "./Topbar";
+import WeeklyTotal from "./Timesheets/WeeklyTotal";
+import PTOModal from "./PTO-Modal";
+import { BlogPost } from './Blog';
 
 const MainContent = () => {
   return (
-    <div className={styles.mainContent} id="main-content">
-      <Row>
-        <Col>
-          <div className="card">
-             <WeeklyTotal/>
-          </div>
+    <div className={styles.wrapper} id="main-content">
+      <Topbar />
 
-          <div className="card">
-            <div className="card-header">
-              <h5>Corporate Message</h5>
-            </div>
-            <div className="card-body">
-              Hello Everyone! Just as a reminder that stock bootstrapping series
-              A financing channels user experience virality
-              business-to-business. Early adopters first mover advantage
-              hypotheses.
-            </div>
-          </div>
-        </Col>
+      <main aria-label="main-content" id="main-content">
+        <Row>
+          <Col lg="6">
+            <Card className="mb-4">
+              <CardBody>
+                <WeeklyTotal />
+              </CardBody>
+            </Card>
 
-        <Col>
-          <div className="card">
-            <div className="card-header">
-              <p className="h5">Request PTO</p>
-            </div>
-            <div className="card-body">
-              <p>You have a PTO balance of 32 hours.</p>
-              <div id="openPTOModal" className="btn btn-info btn-lg btn-block">
-                Start a new PTO Request
-              </div>
-            </div>
-          </div>
+            <Card className="card mb-4 border-primary">
+              <CardHeader>
+                <h5>Corporate Message</h5>
+              </CardHeader>
+              <CardBody>
+                Hello Everyone! Just as a reminder that stock bootstrapping
+                series A financing channels user experience virality
+                business-to-business. Early adopters first mover advantage
+                hypotheses.
+              </CardBody>
+            </Card>
+          </Col>
 
-          <div className="BlogPost__PostContainer-sc-j7bot3-0 ldUkFV">
-            <img className="post-image" />
-            <div className="BlogPost__PostContent-sc-j7bot3-3 iIkaS">
-              <a className="BlogPost__PostTitle-sc-j7bot3-2 bgqYfG"></a>
-              <p className="post-body">
-                ...<a href="/news/post/null">Read More</a>
-              </p>
-              <div className="BlogPost__PostFooter-sc-j7bot3-5 bRgQof">
-                <a className="float-right" href="/news/category"></a>
-                <div className="BlogPost__PostDate-sc-j7bot3-6 jLbblN">
-                  Posted on Invalid date
-                </div>
-              </div>
-            </div>
-          </div>
-        </Col>
-      </Row>
+          <Col lg="6">
+            <Card className="mb-4">
+              <CardHeader>
+                <p className="h5">Request PTO</p>
+              </CardHeader>
+              <CardBody>
+                <p>You have a PTO balance of 32 hours.</p>
+                <PTOModal/>
+              </CardBody>
+            </Card>
+
+            <BlogPost latest teaser  />
+          </Col>
+        </Row>
+      </main>
     </div>
   );
 };
