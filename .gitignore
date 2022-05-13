@@ -63,6 +63,7 @@ a11y-reports/
 a11y-results/
 .DS_store
 .npmrc
+.next/
 
 #cypress output
 cypress/a11y-results/

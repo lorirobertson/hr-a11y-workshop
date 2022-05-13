@@ -1,0 +1,27 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 175px;
+    background: #fff;
+    margin-left: 0;
+    box-shadow: 0 1px 20px rgba(50,50,50,.5);
+    overflow-y: scroll;
+
+    & > a {
+        display: block;
+        text-align: center;
+        padding: 2.5em 1em;
+        color: #000;
+        transition: all 0.2s;
+        font-weight: bold;
+        font-size: 1.5em;
+        cursor: pointer;
+
+        &:hover, &:focus {
+            background: gray;
+        }
+    }
+}
