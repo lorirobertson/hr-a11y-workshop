@@ -4,7 +4,7 @@ import WeeklyTotal from "../Timesheets/WeeklyTotal";
 import PTOModal from "./PTO-Modal";
 import { BlogPost } from "../Blog";
 
-const MainContent = () => {
+const Dashboard = () => {
   return (
     <>
       <Row>
@@ -46,4 +46,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default Dashboard;

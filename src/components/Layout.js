@@ -1,13 +1,14 @@
 import Head from "next/head";
 import ConditionalRender from "./ConditionalRender";
 import styled, { css } from "styled-components";
-import styles from "../styles/components/Main.module.scss";
+import styles from "../styles/components/Container.module.scss";
 
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
 const ContentWrapper = styled.div`
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
 
   ${(props) =>
     props.hasSidebar &&
@@ -30,6 +31,10 @@ const ContentWrapper = styled.div`
         right: 0;
       }
     `}
+
+  .float-right {
+    float: right !important;
+  }
 `;
 
 const Layout = ({
@@ -40,7 +45,7 @@ const Layout = ({
   footer = true,
 }) => {
   return (
-    <div id="app-container">
+    <div id="app-container" className={styles.container}>
       <Head>
         <title>{title} - HR A11y</title>
         <meta charSet="utf-8" />
@@ -56,11 +61,7 @@ const Layout = ({
           <Topbar />
         </ConditionalRender>
 
-        <main
-          aria-label="Main Content"
-          id="main-content"
-          className={styles.main}
-        >
+        <main aria-label="Main Content" id="main-content">
           {children}
         </main>
 

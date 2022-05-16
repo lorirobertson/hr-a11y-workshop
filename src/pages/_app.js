@@ -1,6 +1,5 @@
 import "../fonts/css/fontawesome.css";
 import "../fonts/css/solid.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -9,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		background: #F9FAFB
+		background: #F9FAFB;
 	}
 `;
 

@@ -20,9 +20,9 @@ const Sidebar = () => {
       <a href="/timesheets" id="link-timesheets">
         <i className="fas fa-clock"></i>
       </a>
-      <a href="/news" id="link-news">
+      {/* <a href="/news" id="link-news">
         <i className="fas fa-book"></i>
-      </a>
+      </a> */}
     </aside>
   );
 };
