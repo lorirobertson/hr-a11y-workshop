@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Row, Col, Button } from "reactstrap";
 import { format, startOfWeek, endOfWeek } from "date-fns";
 
@@ -47,7 +47,7 @@ const WeeklyTotal = () => {
             </Link>
           </Row>
           <Row>
-            <Link href={`/timesheets`}>
+            <Link href="/timesheets">
               <Button block size="lg" color="secondary">
                 View All Timesheets
               </Button>

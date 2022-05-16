@@ -13,8 +13,8 @@ This is an application for demoing the full range of the axe DevTools product.
 ## Run the full environment
 
 ### Web Application (server + front-end)
-* In a new command prompt window, start the hr-a11y app by running `npm run dev` or `yarn dev`
-* Open a webbrowser and navigate to [http://localhost:1234](http://localhost:1234)
+* In a new command prompt window, start the hr-a11y-workshop app by running `npm run dev` or `yarn dev`
+* Open a webbrowser and navigate to [http://localhost:4000](http://localhost:4000)
 
 ### Automated Tests
 * In a new command prompt window, start the automated tests by running `npm test` or `yarn test`

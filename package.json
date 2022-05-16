@@ -5,7 +5,7 @@
   "main": "./src/pages/index.js",
   "scripts": {
     "build": "next build && next export -o ./dist",
-    "start": "next dev",
+    "start": "next dev -p 4000",
     "lint": "next lint",
     "test": "cypress run"
   },
