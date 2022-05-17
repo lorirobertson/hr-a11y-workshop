@@ -19,16 +19,20 @@
         font-weight: bold;
         font-size: 1.5em;
         cursor: pointer;
-
+        
         &:hover, &:focus {
-            background: gray;
-            border-left: .5em solid lime;
+            text-decoration: underline;
+            background: #bbbbbb;
+            color: #3359EC;
+
+            i {
+                text-decoration: underline;
+            }
         }
 
         &:first-child:hover, &:first-child:focus {
             background-color: #3359EC;
             border-left: 0;
-            border-bottom: .5em solid lime;
         }
     }
 }

@@ -36,23 +36,22 @@ const WeeklyTotal = () => {
           </div>
         </Col>
         <Col>
-          <Row className="mb-2">
-            <Link
-              href=""
-              href={`/timesheets/week/${format(startOfWeek(today), "yyyy-MM-dd")}/new`}
-            >
-              <Button block size="lg" color="success">
-                Log Time
-              </Button>
-            </Link>
-          </Row>
-          <Row>
-            <Link href="/timesheets">
-              <Button block size="lg" color="secondary">
-                View All Timesheets
-              </Button>
-            </Link>
-          </Row>
+          <Link
+            href=""
+            href={`/timesheets/week/${format(
+              startOfWeek(today),
+              "yyyy-MM-dd"
+            )}/new`}
+          >
+            <Button block size="lg" color="success">
+              Log Time
+            </Button>
+          </Link>
+          <Link href="/timesheets">
+            <Button block size="lg" color="secondary">
+              View All Timesheets
+            </Button>
+          </Link>
         </Col>
       </Row>
     </>
