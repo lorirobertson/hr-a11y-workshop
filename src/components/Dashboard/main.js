@@ -26,6 +26,16 @@ const Dashboard = () => {
               hypotheses.
             </CardBody>
           </Card>
+    
+        <Card className="mb-4">
+            <CardHeader>
+              <p className="h5">A Container</p>
+            </CardHeader>
+            <CardBody>
+              <h2>Add items here</h2>
+
+            </CardBody>
+          </Card>
         </Col>
 
         <Col lg="6">
